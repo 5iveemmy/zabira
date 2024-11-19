@@ -91,3 +91,18 @@
 .custom-border {
   border-bottom: 1px solid #dce0e5;
 }
+
+.promo-section {
+  background: linear-gradient(0deg, #0083f8, rgba(50, 29, 95, 0.05)),
+    linear-gradient(0deg, rgba(243, 114, 147, 0.1), #072ba7);
+  background-size: cover;
+  position: relative;
+}
+
+.zabira-download {
+  background: url("../public/world-map-bg.png") no-repeat;
+  background-position: center;
+  background-color: #0083f8;
+  overflow: hidden;
+  background-size: cover;
+}
