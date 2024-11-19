@@ -43,7 +43,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 const Navbar = () => {
   return (
-    <div className="py-3">
+    <div className="custom-container py-3">
       <div className="flex justify-between">
         <div className="flex items-center gap-5">
           <Link href="/">

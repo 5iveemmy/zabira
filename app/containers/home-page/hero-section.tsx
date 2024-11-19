@@ -1,14 +1,15 @@
 "use client";
+
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import React from "react";
-import { Avatar, AvatarImage } from "./ui/avatar";
-import { Separator } from "./ui/separator";
 
 const flags = ["/ngr.jpg", "/usa.jpg", "/ke.jpg", "/za.jpg", "/gh.jpg"];
 
-const Header = () => {
+const HeroSection = () => {
   return (
-    <div className="flex justify-between pt-20">
+    <div className="custom-container flex justify-between pt-20 pb-10">
       <div className="lg:w-2/5 flex flex-col gap-1">
         <h1 className="text-5xl leading-tight text-dark font-bold">
           Energize your Future with{" "}
@@ -52,7 +53,7 @@ const Header = () => {
 
           <div className="">
             <p className="text-4xl text-dark font-bold">Transfer funds</p>
-            <p className="text-sm text-gray-500">Move your money, your way</p>
+            <p className="text-sm text-[#7e7e7e]">Move your money, your way</p>
           </div>
         </div>
       </div>
@@ -65,4 +66,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeroSection;
