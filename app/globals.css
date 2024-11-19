@@ -87,3 +87,7 @@
     max-width: 1400px;
   }
 }
+
+.custom-border {
+  border-bottom: 1px solid #dce0e5;
+}
