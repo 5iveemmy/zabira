@@ -1,0 +1,82 @@
+import { AlarmClock, Calculator, Headset, ShieldAlert } from "lucide-react";
+import Image from "next/image";
+import React from "react";
+
+const features = [
+  {
+    title: "Instant Transactions",
+    description:
+      "Experience quick, hassle-free transactions, No need to fear delays",
+    icon: <AlarmClock className="text-brand w-7 h-7 mb-4" />,
+  },
+  {
+    title: "Best Rates",
+    description:
+      "Enjoy the best rates in the markey. Your wallet will thank you",
+    icon: <Calculator className="text-brand w-7 h-7 mb-4" />,
+  },
+  {
+    title: "Secure Transactions",
+    description:
+      "Rest easy knowing your teades are protected. Safety is our priority",
+    icon: <ShieldAlert className="text-brand w-7 h-7 mb-4" />,
+  },
+  {
+    title: "24/7 Customer Support",
+    description: "Reliable 24/7 support for your trades. Trust us to be there",
+    icon: <Headset className="text-brand w-7 h-7 mb-4" />,
+  },
+];
+
+const WhatWeDo = () => {
+  return (
+    <>
+      <section className="custom-container px-3 py-32 ">
+        <div className="text-center">
+          <h1 className="font-bold text-[64px] ">
+            Zabira in <span className="text-brand">60</span> seconds
+          </h1>
+          <p className="text-xl">
+            Trade the world, pay the world: experience finance with Zabira
+          </p>
+        </div>
+      </section>
+      <section className="custom-container pb-32 relative mb-32">
+        <div className="absolute rounded-3xl top-0 h-full -z-10 left-0 lg:w-[63%] bg-[#e2f3ff]" />
+        <div className="pt-32 flex items-end w-full">
+          <div className="lg:min-w-[569px] px-4">
+            <h2 className="text-[64px] font-bold">
+              All-in-One App Built for YOU
+            </h2>
+            <Image
+              src="/plane.svg"
+              width="240"
+              height="130"
+              alt="plane icon"
+              className="mt-7"
+            />
+          </div>
+
+          <div className="flex gap-6  flex-wrap z-30">
+            {features.map(({ title, icon, description }, index) => (
+              <div
+                key={index}
+                className="shadow-feature-card w-[365px] bg-white  p-6 h-[263px] rounded-xl "
+              >
+                {icon}
+                <div>
+                  <h2 className="text-[40px] leading-tight font-bold pb-3">
+                    {title}
+                  </h2>
+                  <p className="text-[#7e7e7e]">{description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default WhatWeDo;

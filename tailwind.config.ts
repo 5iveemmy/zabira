@@ -59,7 +59,10 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      boxShadow: { "card-custom": "0px 14px 64px 0px rgba(15, 15, 15, 0.1)" },
+      boxShadow: {
+        "card-custom": "0px 14px 64px 0px rgba(15, 15, 15, 0.1)",
+        "feature-card": "0rem 1rem 1.75rem 0rem rgba(45, 55, 75, 0.1)",
+      },
     },
   },
 
