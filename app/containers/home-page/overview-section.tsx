@@ -36,7 +36,7 @@ const ourProducts = [
   },
 ];
 
-const Products = () => {
+const OverviewSection = () => {
   return (
     <div className="bg-[#f7f7f7]">
       <div className="custom-container py-24">
@@ -63,4 +63,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default OverviewSection;

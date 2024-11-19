@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 const HeroSection = dynamic(() => import("./hero-section"), {
   ssr: false,
 });
-const Products = dynamic(() => import("./products"), {
+const OverviewSection = dynamic(() => import("./overview-section"), {
   ssr: false,
 });
 
@@ -14,7 +14,7 @@ const HomePage = () => {
   return (
     <>
       <HeroSection />
-      <Products />
+      <OverviewSection />
     </>
   );
 };
