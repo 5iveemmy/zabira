@@ -76,7 +76,7 @@ const listData = [
     title: "SUPPORT",
     items: [
       { text: "Blog", externalLink: "https://blog.zabira.ng/" },
-      { text: "Download", link: "/" },
+      { text: "Download", link: "/download" },
       { text: "Help Center", externalLink: "https://support.zabira.ng/" },
       {
         text: "Referral Program",
@@ -123,8 +123,7 @@ const socialLinks = [
 const Footer = () => {
   const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
   const pathname = usePathname();
-  console.log(pathname, "pathname");
-  // /company/careers
+
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 300);

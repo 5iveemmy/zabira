@@ -94,9 +94,24 @@
 
 .promo-section {
   background: linear-gradient(0deg, #0083f8, rgba(50, 29, 95, 0.05)),
-    linear-gradient(0deg, rgba(243, 114, 147, 0.1), #072ba7);
+    linear-gradient(0deg, rgba(243, 114, 147, 0.1), #072ba7),
+    url("../public/bg-sale.png");
   background-size: cover;
   position: relative;
+}
+
+.promo-section::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      0deg,
+      rgba(102, 99, 228, 0.2),
+      rgba(102, 99, 228, 0.2)
+    ),
+    rgba(39, 59, 239, 0.8);
+  z-index: -1;
 }
 
 .zabira-download {
@@ -118,4 +133,17 @@
   color: #0083f8;
   border-color: rgba(220, 224, 229, 0.6);
   box-shadow: 0 3px 6px -2px rgba(140, 152, 164, 0.25);
+}
+
+.get-started-blue {
+  background-color: #e0f1ff;
+  border-radius: 40px;
+  padding: 4rem 4rem 0 4rem;
+  margin-top: -4.2rem;
+  max-width: 90%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: fit-content;
 }
