@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import { Separator } from "./ui/separator";
 import Link from "next/link";
@@ -14,20 +15,37 @@ import Icon from "./Icon";
 import { IoIosArrowUp } from "react-icons/io";
 import { Button } from "./ui/button";
 
+import dynamic from "next/dynamic";
+import { usePathname } from "next/navigation";
+
+const DownloadSection = dynamic(
+  () => import("@/app/containers/footer/download-section"),
+  {
+    ssr: false,
+  }
+);
+
 interface ListDisplayProps {
   title: string;
-  items: { text: string; link: string }[];
+  items: { text: string; link?: string; externalLink?: string }[];
 }
 
 const ListDisplay = ({ title, items }: ListDisplayProps) => {
   return (
     <div className="flex items-center md:items-start gap-2 flex-col col-span-1">
       <h2 className="font-bold text-sm pb-2">{title}</h2>
-      {items.map(({ text, link }) => (
+
+      {items.map(({ text, link, externalLink }) => (
         <div key={text} className="flex text-center items-center gap-2">
-          <Link href={link} className="hover:text-brand text-lg ">
-            {text}
-          </Link>
+          {externalLink ? (
+            <a rel="noopener noreferrer" target="_blank" href={link}>
+              {text}
+            </a>
+          ) : (
+            <Link href={link as string} className="hover:text-brand text-lg ">
+              {text}
+            </Link>
+          )}
         </div>
       ))}
     </div>
@@ -39,36 +57,42 @@ const listData = [
     title: "COMPANY",
     items: [
       { text: "About Us", link: "/company/about" },
-      { text: "Contact US", link: "/company/contact" },
-      { text: "Career", link: "" },
+      { text: "Contact Us", link: "/company/contact" },
+      { text: "Career", link: "/company/careers" },
     ],
   },
   {
     title: "PRODUCTS",
     items: [
-      { text: "Trade Crypto", link: "" },
+      { text: "Trade Crypto", link: "/" },
       {
         text: "Trade Giftcards",
-        link: "",
+        link: "/",
       },
-      { text: "Utility Bills", link: "" },
+      { text: "Utility Bills", link: "/" },
     ],
   },
   {
     title: "SUPPORT",
     items: [
-      { text: "Blog", link: "" },
-      { text: "Download", link: "" },
-      { text: "Help Center", link: "" },
-      { text: "Referral Program", link: "" },
-      { text: "ID Verification", link: "" },
+      { text: "Blog", externalLink: "https://blog.zabira.ng/" },
+      { text: "Download", link: "/" },
+      { text: "Help Center", externalLink: "https://support.zabira.ng/" },
+      {
+        text: "Referral Program",
+        externalLink: "https://blog.zabira.ng/referral",
+      },
+      {
+        text: "ID Verification",
+        externalLink: "https://blog.zabira.ng/verification",
+      },
     ],
   },
   {
     title: "LEGAL",
     items: [
-      { text: "Terms Of Use", link: "" },
-      { text: "Privacy Policy", link: "/privacy/" },
+      { text: "Terms Of Use", link: "/" },
+      { text: "Privacy Policy", link: "/" },
     ],
   },
 ];
@@ -98,7 +122,9 @@ const socialLinks = [
 
 const Footer = () => {
   const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
-
+  const pathname = usePathname();
+  console.log(pathname, "pathname");
+  // /company/careers
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 300);
@@ -120,61 +146,7 @@ const Footer = () => {
 
   return (
     <>
-      <section className="bg-brand mt-[70px] pt-14 zabira-download relative">
-        <div className="pt-24 custom-container flex items-center gap-96">
-          <div className="lg:w-[35%] flex flex-col gap-1 text-white">
-            <h1 className="text-5xl leading-tight  font-bold">
-              Download the Zabira App Today!
-            </h1>
-            <p className="text-lg">
-              We&lsquo;ve done it carefully and simply. Combined with the
-              ingredients makes for beautiful landings
-            </p>
-
-            <div className="gap-4 flex py-4">
-              <Image
-                src="/app-store-badge.svg"
-                width="151"
-                height="41"
-                className="rounded-2xl"
-                alt="app store badge"
-              />
-              <Image
-                src="/google-play-badge.svg"
-                width="151"
-                className="rounded-2xl"
-                height="41"
-                alt="google play badge"
-              />
-            </div>
-          </div>
-          <div>
-            <Image
-              priority
-              width="317"
-              height="572"
-              src="/phone.svg"
-              alt="phone"
-            />
-          </div>
-        </div>
-        <Image
-          priority
-          width="192"
-          height="109"
-          src="/three-arrows.svg"
-          alt="arrows"
-          className="absolute top-[5rem] right-[8rem]"
-        />
-
-        <Image
-          src="/plane.svg"
-          width="160"
-          height="86"
-          alt="plane icon"
-          className="absolute bottom-[5.5rem] right-[15.5rem]"
-        />
-      </section>
+      {pathname !== "/download" && <DownloadSection />}
 
       <section className="promo-section">
         <div className="py-8 flex justify-between custom-container items-center">
