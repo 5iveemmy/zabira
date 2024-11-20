@@ -13,7 +13,7 @@ const Header = ({ title, description, career }: Props) => {
   return (
     <section className="zabira-footprint">
       <div className="custom-container lg:pb-[9rem] lg:pt-16 flex justify-between">
-        <div className="pt-20">
+        <div className="pt-20 lg:w-2/5">
           <h1 className="text-[40px] font-bold pb-2">{title}</h1>
           <p className="text-lg">{description}</p>
         </div>
