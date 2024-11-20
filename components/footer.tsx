@@ -25,14 +25,9 @@ const ListDisplay = ({ title, items }: ListDisplayProps) => {
       <h2 className="font-bold text-sm pb-2">{title}</h2>
       {items.map(({ text, link }) => (
         <div key={text} className="flex text-center items-center gap-2">
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-brand text-lg "
-          >
+          <Link href={link} className="hover:text-brand text-lg ">
             {text}
-          </a>
+          </Link>
         </div>
       ))}
     </div>
@@ -43,8 +38,8 @@ const listData = [
   {
     title: "COMPANY",
     items: [
-      { text: "About Us", link: "" },
-      { text: "Contact US", link: "" },
+      { text: "About Us", link: "/company/about" },
+      { text: "Contact US", link: "/company/contact" },
       { text: "Career", link: "" },
     ],
   },
