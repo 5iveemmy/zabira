@@ -68,7 +68,7 @@ const Contact = () => {
   return (
     <>
       <Header
-        title="Contact Zabira"
+        title="Contact"
         description="Your feedback matters to us. We would like to entertain questions on any relevant subject"
       />
       <section>

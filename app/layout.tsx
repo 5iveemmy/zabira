@@ -5,7 +5,9 @@ import { ThemeProvider } from "./themeProvider";
 import dynamic from "next/dynamic";
 
 const Navbar = dynamic(() => import("@/components/navbar"), { ssr: false });
-const Footer = dynamic(() => import("@/components/footer"), { ssr: false });
+const Footer = dynamic(() => import("@/components/footer"), {
+  ssr: false,
+});
 
 const plusJakarta = localFont({
   src: "./fonts/PlusJakartaSans-VariableFont_wght.ttf",

@@ -1,8 +1,9 @@
 "use client";
 
+import DownloadBadges from "@/components/download-badges";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
-import Image from "next/image";
+
 import React from "react";
 
 const flags = ["/ngr.jpg", "/usa.jpg", "/ke.jpg", "/za.jpg", "/gh.jpg"];
@@ -20,22 +21,7 @@ const HeroSection = () => {
           payments. Your Journey into the future of finance starts now
         </p>
 
-        <div className="gap-4 flex py-4">
-          <Image
-            src="/app-store-badge.svg"
-            width="151"
-            height="41"
-            className="rounded-2xl"
-            alt="app store badge"
-          />
-          <Image
-            src="/google-play-badge.svg"
-            width="151"
-            className="rounded-2xl"
-            height="41"
-            alt="google play badge"
-          />
-        </div>
+        <DownloadBadges />
 
         <div className="flex justify-center items-center gap-4">
           <div className="flex relative -space-x-4">

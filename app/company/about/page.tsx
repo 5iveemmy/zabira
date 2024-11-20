@@ -12,7 +12,7 @@ const About = () => {
   return (
     <>
       <Header
-        title="About Zabira"
+        title="About"
         description="The grand masters  of instant payments"
       />
 
