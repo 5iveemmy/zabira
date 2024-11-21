@@ -1,0 +1,129 @@
+import { Button } from "@/components/ui/button";
+import ZabiraFootprint from "@/components/zabira-footprint";
+import Image from "next/image";
+import React from "react";
+
+const paymentOptions = [
+  {
+    title: "Airtime",
+    description: "Quick & easy mobile reloads on the go, wherever you go",
+    image: "/img-sub.png",
+  },
+  {
+    title: "Cable-Tv Subscription",
+    description: "Pay for your GoTV, Dstv or Startimes subscriptions with ease",
+    image: "/img-cable.png",
+  },
+  {
+    title: "Utilities",
+    description: "Keep the lights on by paying for your power bills on Zabira",
+    image: "/utilities.png",
+  },
+  {
+    title: "Sports-betting",
+    description:
+      "Top up your bet wallet at your own convenience using our platform",
+    image: "/betting.png",
+  },
+];
+
+const Utilities = () => {
+  return (
+    <>
+      <ZabiraFootprint
+        title="Innovate with payments"
+        description="Step into the future and simplify your life"
+        button={
+          <Button
+            asChild
+            className="h-12 mt-12 rounded-full text-white bg-[#3772ff] font-bold px-8 text-base"
+          >
+            <a
+              target="_blank"
+              href="https://app.zabira.com/bill-payment"
+              rel="noopener noreferrer"
+            >
+              Pay Now
+            </a>
+          </Button>
+        }
+        rightElemet={
+          <Image
+            src="/payments-hero.svg"
+            width="520"
+            height="550"
+            alt="plane icon"
+          />
+        }
+      />
+      <section>
+        <div className="custom-container pt-10 pb-28">
+          <div className="flex justify-center items-center flex-col text-center pb-5">
+            <h2 className="text-5xl font-bold mb-3">Bill Payments</h2>
+            <p className="text-[#7e7e7e]">
+              We are extending the capabilites of your wallet
+            </p>
+          </div>
+          <div className="flex flex-col gap-16">
+            {paymentOptions.map(({ description, title, image }, index) => (
+              <div
+                key={title}
+                className={`flex items-center  ${
+                  index % 2 !== 0
+                    ? "justify-between pr-10 flex-row-reverse"
+                    : "gap-8"
+                }`}
+              >
+                <div className="relative">
+                  <Image
+                    priority
+                    className="absolute -bottom-12 -left-16"
+                    width="192"
+                    height="104"
+                    src="/curved-shape.svg"
+                    alt="line"
+                  />
+                  <Image
+                    priority
+                    className="absolute top-2 -right-8"
+                    width="64"
+                    height="71"
+                    src="/pointer-up.svg"
+                    alt="line"
+                  />
+                  <Image
+                    priority
+                    width="539"
+                    height="539"
+                    src={image}
+                    alt={title}
+                  />
+                </div>
+                <div>
+                  <div className="">
+                    <h1 className="text-[40px] font-bold ">{title}</h1>
+                    <p className=" text-[#7e7e7e] pb-3">{description}</p>
+                    <Button
+                      asChild
+                      className="rounded-full text-white bg-[#0083F8] font-bold px-8 "
+                    >
+                      <a
+                        target="_blank"
+                        href="https://app.zabira.com/bill-payment"
+                        rel="noopener noreferrer"
+                      >
+                        Pay Now
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default Utilities;
