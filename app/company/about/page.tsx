@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import React from "react";
 
-const Header = dynamic(() => import("@/app/containers/company/header"), {
+const Header = dynamic(() => import("@/components/zabira-footprint"), {
   ssr: false,
 });
 
@@ -13,7 +13,8 @@ const About = () => {
     <>
       <Header
         title="About"
-        description="The grand masters  of instant payments"
+        blueText
+        description="The grand masters of instant payments"
       />
 
       <section>

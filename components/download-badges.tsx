@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 interface DownloadBadgesProps {
@@ -7,7 +8,7 @@ interface DownloadBadgesProps {
 }
 
 const DownloadBadges = ({ className }: DownloadBadgesProps) => (
-  <div className={`gap-4 flex py-4 ${className}`}>
+  <div className={cn("gap-4 flex py-4", className)}>
     <a
       rel="noopener noreferrer"
       target="_blank"

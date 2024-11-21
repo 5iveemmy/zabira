@@ -6,7 +6,7 @@ import { IoMailOpenOutline } from "react-icons/io5";
 import { Button } from "@/components/ui/button";
 import { Headset } from "lucide-react";
 
-const Header = dynamic(() => import("@/app/containers/company/header"), {
+const Header = dynamic(() => import("@/components/zabira-footprint"), {
   ssr: false,
 });
 

@@ -64,7 +64,7 @@ const listData = [
   {
     title: "PRODUCTS",
     items: [
-      { text: "Trade Crypto", link: "/" },
+      { text: "Trade Crypto", link: "/products/cryptocurrency" },
       {
         text: "Trade Giftcards",
         link: "/",

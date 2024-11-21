@@ -1,26 +1,41 @@
 "use client";
+
 import Image from "next/image";
-import React from "react";
+import React, { ReactNode } from "react";
 import { BsPlayCircle } from "react-icons/bs";
 
 interface Props {
   title: string;
   description: string;
-  career?: boolean;
+  blueText?: boolean;
+  button?: ReactNode;
+  rightElemet?: ReactNode;
 }
 
-const Header = ({ title, description, career }: Props) => {
+const ZabiraFootprint = ({
+  title,
+  description,
+  button,
+  blueText,
+  rightElemet,
+}: Props) => {
   return (
     <section className="zabira-footprint">
-      <div className="custom-container lg:pb-[9rem] lg:pt-16 flex justify-between">
-        <div className="pt-20 lg:w-2/5">
+      <div className="custom-container lg:pb-[9rem] lg:pt-16 flex justify-between items-center">
+        <div className="lg:w-2/5">
           <h1 className="text-[40px] font-bold pb-2">
             {title}{" "}
-            <span className={`${career ? "text-brand" : ""}`}>Zabira</span>
+            {blueText && (
+              <span className={`${blueText ? "text-brand" : ""}`}>Zabira</span>
+            )}
           </h1>
           <p className="text-lg text-[#7e7e7e]">{description}</p>
+          {button && button}
         </div>
-        {!career && (
+
+        {rightElemet ? (
+          <>{rightElemet}</>
+        ) : (
           <div className="relative w-[352px] h-[370px] p-8 bg-white rounded-3xl flex flex-col justify-between">
             <div>
               <h2 className="text-5xl font-bold leading-tight pb-3">
@@ -58,4 +73,4 @@ const Header = ({ title, description, career }: Props) => {
   );
 };
 
-export default Header;
+export default ZabiraFootprint;
