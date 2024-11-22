@@ -43,8 +43,8 @@ const components: { title: string; href: string; description: string }[] = [
 
 const Navbar = () => {
   return (
-    <div className="custom-container py-3">
-      <div className="flex justify-between">
+    <div className=" bg-white  sticky top-0 left-0 right-0 z-[999]">
+      <div className="custom-container py-3 flex justify-between">
         <div className="flex items-center gap-5">
           <Link href="/">
             <Image

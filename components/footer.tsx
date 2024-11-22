@@ -204,7 +204,7 @@ const Footer = () => {
               height="150"
               src="/qrcode_2.png"
               className="mb-6"
-              alt="zabira logo"
+              alt="Qr Code"
             />
             <div className="flex gap-4 items-center ">
               {socialLinks.map(({ icon, link }, index) => (
