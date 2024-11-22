@@ -1,3 +1,4 @@
+import ZabiraWork from "@/components/zabira-work";
 import { AlarmClock, Calculator, Headset, ShieldAlert } from "lucide-react";
 import Image from "next/image";
 import React from "react";
@@ -31,16 +32,21 @@ const features = [
 const WhatWeDo = () => {
   return (
     <>
-      <section className="custom-container px-3 py-32 ">
+      <section className="flex flex-col justify-center custom-container px-3 py-32 ">
         <div className="text-center">
           <h1 className="font-bold text-[64px] ">
             Zabira in <span className="text-brand">60</span> seconds
           </h1>
-          <p className="text-xl">
+          <p className="text-xl pb-1">
             Trade the world, pay the world: experience finance with Zabira
           </p>
         </div>
+
+        <div className="flex justify-end items-end youtube-bg lg:w-[75%] p-6 md:min-h-[75vh] rounded-3xl mx-auto relative">
+          <ZabiraWork className="w-[272px]" />
+        </div>
       </section>
+
       <section className="custom-container pb-32 relative mb-32">
         <div className="absolute rounded-3xl top-0 h-full -z-10 left-0 lg:w-[63%] bg-[#e2f3ff]" />
         <div className="pt-32 flex items-end w-full">

@@ -107,6 +107,7 @@ const HeroSection = () => {
                 <Image
                   priority
                   width="653"
+                  unoptimized
                   height="653"
                   src={image}
                   alt={`image ${index}`}

@@ -148,6 +148,11 @@
   width: fit-content;
 }
 
+.youtube-bg {
+  background: url("../public/team-learning.jpg") no-repeat;
+  background-position: center;
+}
+
 /* .btn-action:after {
   background: linear-gradient(
     90deg,

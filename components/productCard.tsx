@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 interface Props {
   title: string;
@@ -35,13 +36,13 @@ const ProductCard = ({
       <div>
         <h1 className="text-2xl font-bold pb-3">{title}</h1>
         <p className="text-[#7e7e7e]">{description}</p>
-        <a
-          href={link}
+        <Link
+          href={link as string}
           className="flex items-center justify-center gap-2 group cursor-pointer"
         >
           <p className="text-brand text-[15px] font-medium">See more</p>
           <ArrowRight className="w-3 h-3 text-brand transition-transform group-hover:translate-x-1 duration-200 ease-in-out" />
-        </a>
+        </Link>
       </div>
     </div>
   );
