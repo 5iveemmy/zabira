@@ -1,6 +1,12 @@
 "use client";
 
 import StatsWithImage from "@/components/statsWithImage";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import ZabiraFootprint from "@/components/zabira-footprint";
 import React from "react";
 
@@ -58,6 +64,47 @@ const infoData = [
   },
 ];
 
+const faqs = [
+  {
+    question: "What is Zabira",
+    answer:
+      "Zabira is an all-in-one digital asset platform that allows you to manage, trade, and earn from various digital assets including cryptocurrencies and gift cards, with the added functionality of a multi-currency wallet that lets you pay for anything.",
+    value: "item-1",
+  },
+  {
+    question: "How do I get started with Zabira?",
+    answer:
+      "To get started, click “Sign Up” on the website to get directed to the web app or download the Zabira app from the app store, create an account or log in with your existing credentials, and explore the various features and functionalities available to manage your digital assets.",
+    value: "item-2",
+  },
+  {
+    question: "How do I create an account on Zabira?",
+    answer:
+      "To create an account, sign up through the website to navigate to the web app or download the Zabira One app from the app store, open the app, and follow the on-screen instructions to sign up using your email address or phone number.",
+    value: "item-3",
+  },
+  {
+    question: "How do I securely manage my profile and account?",
+    answer: `You can manage your profile and account settings by navigating to the "Profile" section in the app. Here, you can update your personal information, change your password, and enable two-factor authentication for enhanced security.`,
+    value: "item-4",
+  },
+  {
+    question: "What types of digital assets can I manage on Zabira?",
+    answer: `Zabira allows you to manage a wide range of digital assets including cryptocurrencies (like Bitcoin, Ethereum, and more), gift cards, and fiat currencies.`,
+    value: "item-5",
+  },
+  {
+    question: "How do I switch between my crypto and fiat wallet?",
+    answer: `You can switch between your crypto and fiat wallet by accessing the "Wallet" section in the app and selecting the desired wallet type.`,
+    value: "item-6",
+  },
+  {
+    question: "How do I fund my fiat wallet?",
+    answer: `You can fund your fiat wallet by switching to "Fiat" in the "Wallet" section of the app, choosing your desired currency, and selecting an option like "Bank Transfer" to add funds.`,
+    value: "item-7",
+  },
+];
+
 const About = () => {
   return (
     <>
@@ -75,11 +122,32 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-5">
-        <div className="custom-container py-5 flex justify-between">
-          <p className="px-4 lg:w-2/5 text-5xl font-bold">
+      <section className="py-16">
+        <div className="custom-container py-5 flex gap-6">
+          <p className="pt-8 lg:min-w-[30%] leading-tight text-5xl font-bold">
             Frequently Asked Questions
           </p>
+
+          <Accordion
+            type="single"
+            collapsible
+            className="w-full border-[#dce0e599] border"
+          >
+            {faqs.map(({ value, question, answer }) => (
+              <AccordionItem
+                value={value}
+                key={value}
+                className="data-[state=open]:bg-[#e2f3ff]  pl-6 pr-10 border-none"
+              >
+                <AccordionTrigger className="data-[state=open]:text-[#1066e7] text-lg">
+                  {question}
+                </AccordionTrigger>
+                <AccordionContent className="text-base pl-11 text-[#51596C]">
+                  {answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </section>
     </>
