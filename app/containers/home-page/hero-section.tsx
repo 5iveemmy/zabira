@@ -35,7 +35,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="custom-container flex justify-between pt-20 pb-10 items-center">
+    <div className="custom-container lg:flex-row flex-col flex justify-between pt-20 pb-10 items-center">
       <div className="lg:w-2/5 flex flex-col gap-1">
         <h1 className="text-5xl leading-tight text-dark font-bold">
           Energize your Future with{" "}

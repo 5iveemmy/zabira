@@ -20,7 +20,7 @@ const ZabiraFootprint = ({
 }: Props) => {
   return (
     <section className="zabira-footprint">
-      <div className="custom-container lg:pb-[9rem] lg:pt-16 flex justify-between items-center">
+      <div className="custom-container h-[700px] lg:pb-[9rem] lg:pt-16 flex flex-col md:flex-row justify-between  md:items-center">
         <div className="lg:w-2/5">
           <h1 className="text-[40px] font-bold pb-2">
             {title}{" "}

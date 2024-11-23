@@ -6,7 +6,7 @@ import React from "react";
 const DownloadSection = () => {
   return (
     <section className="bg-brand pt-14 zabira-download relative">
-      <div className="pt-24 custom-container flex items-center gap-96">
+      <div className="pt-24 custom-container flex-col lg:flex-row flex items-center gap-20 lg:gap-96">
         <div className="lg:w-[35%] flex flex-col gap-1 text-white">
           <h1 className="text-5xl leading-tight  font-bold">
             Download the Zabira App Today!

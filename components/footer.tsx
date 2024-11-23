@@ -144,7 +144,7 @@ const Footer = () => {
   };
 
   return (
-    <>
+    <div className="hidden lg:block">
       {pathname !== "/download" && <DownloadSection />}
 
       <section className="promo-section">
@@ -173,8 +173,9 @@ const Footer = () => {
           </Button>
         </div>
       </section>
+
       <div className="custom-container">
-        <div className="flex">
+        <div className="flex ">
           <div className="border-r border-[#8c98a4] pr-32 pt-11 min-w-[400px]">
             <Link href="/">
               <Image
@@ -190,13 +191,13 @@ const Footer = () => {
             <p className="text-[#7e7e7e]">support@zabira.com</p>
           </div>
 
-          <div className="border-r pb-8 border-[#8c98a4] pl-20 pr-12 pt-11 flex flex-wrap max-w-[471px] justify-between gap-10">
+          <div className="pb-8 pl-20 pr-12 pt-11 flex flex-wrap max-w-[471px] justify-between gap-10">
             {listData.map(({ title, items }) => (
               <ListDisplay key={title} title={title} items={items} />
             ))}
           </div>
 
-          <div className="flex flex-col items-center pt-[53px] pl-28 pb-16">
+          <div className="border-l border-[#8c98a4] flex flex-col items-center pt-[53px] pl-28 pb-16">
             <p className="text-3xl mb-3 font-bold">Download our app </p>
             <Image
               priority
@@ -243,7 +244,7 @@ const Footer = () => {
           </button>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

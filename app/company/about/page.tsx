@@ -18,7 +18,7 @@ const About = () => {
       />
 
       <section>
-        <div className="custom-container py-5 flex justify-between">
+        <div className="custom-container py-5  flex justify-between">
           <Image
             priority
             width="558"

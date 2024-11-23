@@ -1,7 +1,11 @@
+"use client";
+
 import ZabiraWork from "@/components/zabira-work";
 import { AlarmClock, Calculator, Headset, ShieldAlert } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import { BiPlayCircle } from "react-icons/bi";
+import FsLightbox from "fslightbox-react";
 
 const features = [
   {
@@ -30,6 +34,18 @@ const features = [
 ];
 
 const WhatWeDo = () => {
+  const [lightboxController, setLightboxController] = useState({
+    toggler: false,
+    slide: 1,
+  });
+
+  const openLightboxOnSlide = (number: number) => {
+    setLightboxController({
+      toggler: !lightboxController.toggler,
+      slide: number,
+    });
+  };
+
   return (
     <>
       <section className="flex flex-col justify-center custom-container px-3 py-32 ">
@@ -42,14 +58,32 @@ const WhatWeDo = () => {
           </p>
         </div>
 
-        <div className="flex justify-end items-end youtube-bg lg:w-[75%] p-6 md:min-h-[75vh] rounded-3xl mx-auto relative">
-          <ZabiraWork className="w-[272px]" />
+        <div className="bg-cover relative youtube-bg w-full lg:w-[75%] p-6  min-h-[35vh] md:min-h-[75vh] rounded-3xl mx-auto">
+          {/* Centered Play Icon */}
+          <BiPlayCircle
+            onClick={() => openLightboxOnSlide(1)}
+            className="cursor-pointer absolute inset-0 m-auto text-[145px] text-white"
+          />
+
+          {/* ZabiraWork Card */}
+          <ZabiraWork
+            onClick={() => openLightboxOnSlide(2)}
+            className="absolute  bottom-6 right-6 md:w-[272px]"
+          />
+          <FsLightbox
+            toggler={lightboxController.toggler}
+            sources={[
+              "https://www.youtube.com/embed/LyNADeA9dl8?autoreplay=1&rel=0&showinfo=0",
+              "https://www.youtube.com/embed/LyNADeA9dl8?autoreplay=1&rel=0&showinfo=0",
+            ]}
+            slide={lightboxController.slide}
+          />
         </div>
       </section>
 
       <section className="custom-container pb-32 relative mb-32">
         <div className="absolute rounded-3xl top-0 h-full -z-10 left-0 lg:w-[63%] bg-[#e2f3ff]" />
-        <div className="pt-32 flex items-end w-full">
+        <div className="pt-32 flex-col lg:flex-row  flex items-end w-full">
           <div className="lg:min-w-[569px] px-4">
             <h2 className="text-[64px] font-bold">
               All-in-One App Built for YOU
@@ -59,7 +93,7 @@ const WhatWeDo = () => {
               width="240"
               height="130"
               alt="plane icon"
-              className="mt-7"
+              className="hidden lg:block mt-7"
             />
           </div>
 
@@ -67,7 +101,7 @@ const WhatWeDo = () => {
             {features.map(({ title, icon, description }, index) => (
               <div
                 key={index}
-                className="shadow-feature-card w-[365px] bg-white  p-6 h-[263px] rounded-xl "
+                className="shadow-feature-card w-full lg:w-[365px] bg-white  p-6 h-[263px] rounded-xl "
               >
                 {icon}
                 <div>

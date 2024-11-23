@@ -101,12 +101,12 @@ const OverviewSection = () => {
     <>
       {/*Our Products Section */}
       <section className="bg-[#f7f7f7]">
-        <div className="custom-container py-24 flex justify-between">
-          <div className="max-w-[538px] ">
+        <div className="custom-container py-24 lg:flex-row flex-col flex justify-between">
+          <div className="lg:max-w-[538px] ">
             <h1 className="text-5xl leading-tight text-dark font-bold mb-4">
               Our Products
             </h1>
-            <p className="text-[#7e7e7e] text-xl max-w-[368px]">
+            <p className="text-[#7e7e7e] text-xl lg:max-w-[368px]">
               From gift cards and crypto to utility payments, find all your
               financial solutions in one place
             </p>
@@ -124,7 +124,7 @@ const OverviewSection = () => {
           <div className="relative">
             <div className="absolute z-0 top-[87px] right-2 w-[421px] h-[440px] rounded-3xl bg-[#3772ff1a]" />
 
-            <div className="z-20 relative flex flex-col items-end gap-10">
+            <div className="z-20 relative flex flex-col items-center lg:items-end gap-10">
               <div className="mr-20 bg-white p-11 w-[396px] h-fit shadow-card-custom-prducts rounded-xl">
                 <p>How was your experience</p>
                 <div className="flex justify-between">
@@ -168,7 +168,7 @@ const OverviewSection = () => {
                   </div>
                 </div>
 
-                <div className="-mr-16 bg-white gap-4 flex flex-col items-center justify-center p-6 w-[360px] h-fit shadow-card-custom-prducts rounded-xl">
+                <div className="lg:-mr-16 bg-white gap-4 flex flex-col items-center justify-center p-6 w-[360px] h-fit shadow-card-custom-prducts rounded-xl">
                   <Avatar className="w-[100px] h-[100px]">
                     <AvatarImage src="/user.jpg" />
                   </Avatar>
@@ -229,8 +229,8 @@ const OverviewSection = () => {
 
       {/*Our reach globally Section */}
       <section className="bg-[url('/sm-map.png')]">
-        <div className="custom-container py-32 px-3 flex items-center justify-between text-white">
-          <div className="w-2/5">
+        <div className="custom-container py-20 lg:py-32 px-3 gap-16 lg:gap-0 flex-col lg:flex-row flex items-start lg:items-center justify-between text-white">
+          <div className="lg:w-2/5">
             <h1 className="text-[64px] leading-tight  font-bold mb-4">
               Our reach globally
             </h1>
@@ -240,7 +240,7 @@ const OverviewSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-[50%_50%] w-6/12">
+          <div className="grid grid-cols-[50%_50%] lg:w-6/12">
             {reach.map((reach, index) => (
               <div
                 key={reach.title}
