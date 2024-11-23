@@ -123,8 +123,8 @@ const About = () => {
       </section>
 
       <section className="py-16">
-        <div className="custom-container py-5 flex gap-6">
-          <p className="pt-8 lg:min-w-[30%] leading-tight text-5xl font-bold">
+        <div className="custom-container py-5 flex flex-col lg:flex-row gap-10 lg:gap-6">
+          <p className="pt-8 lg:min-w-[30%] leading-tight text-4xl lg:text-5xl font-bold">
             Frequently Asked Questions
           </p>
 

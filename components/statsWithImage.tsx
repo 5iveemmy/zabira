@@ -40,8 +40,10 @@ const StatsWithImage = ({ index, infoData }: Props) => {
   return (
     <div
       className={`${
-        index % 2 !== 0 ? "flex-row-reverse" : "flex-row"
-      } py-5 flex-col lg:flex-row w-full flex justify-between gap-44`}
+        index % 2 !== 0
+          ? "lg:flex-row-reverse flex-col"
+          : "lg:flex-row flex-col"
+      } py-5  w-full flex justify-between gap-20 lg:gap-44`}
     >
       <div className="relative h-fit">
         <Image
@@ -50,7 +52,7 @@ const StatsWithImage = ({ index, infoData }: Props) => {
           width="528"
           src="/Illustration.png"
           alt="about"
-          className="max-w-fit"
+          className="max-w-fit min-w-full"
         />{" "}
         {tradersData.map(({ title, value, icon, className }) => (
           <div
@@ -76,17 +78,19 @@ const StatsWithImage = ({ index, infoData }: Props) => {
         ))}
       </div>
 
-      <div className="pl-4 ">
-        <h3 className="mb-3 text-5xl font-bold">{infoData.title}</h3>
+      <div className="lg:pl-4">
+        <h3 className="mb-3 text-4xl md::text-5xl font-bold">
+          {infoData.title}
+        </h3>
         <div className="flex flex-col gap-3">
           {infoData.description.map((desc) => (
-            <p className="text-xl  text-[#7e7e7e]" key={desc}>
+            <p className="md:text-xl  text-[#7e7e7e]" key={desc}>
               {desc}
             </p>
           ))}
         </div>
 
-        <div className="flex flex-col gap-7 mt-11 pr-24">
+        <div className="flex flex-col gap-7 mt-11 lg:pr-24">
           {infoData.infoHighlight.map(({ header, description, icon }) => (
             <div key={header} className="flex gap-8 items-center">
               <div>
