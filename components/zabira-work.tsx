@@ -14,7 +14,7 @@ const ZabiraWork = ({ className, onClick }: Props) => {
   return (
     <div
       className={cn(
-        "relative p-4  w-fit h-fit md:p-8 md:w-[352px] bg-white rounded-3xl flex flex-col justify-between",
+        "relative p-4  w-fit h-fit md:p-8 md:w-[352px] bg-white rounded-3xl flex flex-col justify-between ",
         className
       )}
     >

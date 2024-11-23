@@ -41,7 +41,7 @@ const StatsWithImage = ({ index, infoData }: Props) => {
     <div
       className={`${
         index % 2 !== 0 ? "flex-row-reverse" : "flex-row"
-      } py-5 w-full flex justify-between gap-44`}
+      } py-5 flex-col lg:flex-row w-full flex justify-between gap-44`}
     >
       <div className="relative h-fit">
         <Image
