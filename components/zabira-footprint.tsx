@@ -32,7 +32,7 @@ const ZabiraFootprint = ({
         )}
       >
         <div className="lg:w-2/5">
-          <h1 className="text-[40px] font-bold pb-2">
+          <h1 className="text-[40px] leading-tight font-bold pb-6">
             {title}{" "}
             {blueText && (
               <span className={`${blueText ? "text-brand" : ""}`}>Zabira</span>

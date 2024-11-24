@@ -7,7 +7,7 @@ const tradersData = [
     icon: "/global.svg",
     value: "3",
     title: "Countries",
-    className: "top-14 left-[3.5rem]",
+    className: "left-0 top-0 md:top-14 md:left-[3.5rem]",
   },
   {
     icon: "/reload.svg",
@@ -19,7 +19,8 @@ const tradersData = [
     icon: "/avatarPlus.svg",
     value: "10K+",
     title: "Trades",
-    className: "top-[73%] left-0 transform  -translate-y-1/2 pr-6",
+    className:
+      "bottom-0 md:bottom-auto md:top-[73%] left-12 md:transform  md:-translate-y-1/2 pr-6",
   },
 ];
 
@@ -52,7 +53,7 @@ const StatsWithImage = ({ index, infoData }: Props) => {
           width="528"
           src="/Illustration.png"
           alt="about"
-          className="max-w-fit min-w-full"
+          className="lg:max-w-fit min-w-full"
         />{" "}
         {tradersData.map(({ title, value, icon, className }) => (
           <div
@@ -79,7 +80,7 @@ const StatsWithImage = ({ index, infoData }: Props) => {
       </div>
 
       <div className="lg:pl-4">
-        <h3 className="mb-3 text-4xl md::text-5xl font-bold">
+        <h3 className="mb-3 text-4xl md::text-5xl font-bold capitalize">
           {infoData.title}
         </h3>
         <div className="flex flex-col gap-3">
