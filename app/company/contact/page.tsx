@@ -23,9 +23,9 @@ interface Props {
 }
 
 const ContactMedium = ({ title, day, time, mail, number, icon }: Props) => (
-  <div className="w-[425px] flex flex-col gap-2 items-center justify-center p-6">
+  <div className="w-full md:w-[425px] flex flex-col gap-2 items-center justify-center p-6">
     {icon}
-    <h3 className="text-[40px] font-bold">{title}</h3>
+    <h3 className="text-4xl md:text-[40px] font-bold py-3">{title}</h3>
     <div className="text-[#51596C] text-center">
       <p>{day}</p>
       <p>{time}</p>
@@ -51,7 +51,9 @@ const ContactMedium = ({ title, day, time, mail, number, icon }: Props) => (
 const contactMedimData = [
   {
     title: "Partners",
-    icon: <IoPersonCircleOutline className="text-brand w-10 h-10" />,
+    icon: (
+      <IoPersonCircleOutline className="text-brand w-8 h-8 md:w-10 md:h-10" />
+    ),
     day: "Mon-Sun",
     time: "8:30 AM to 6:00 PM",
     mail: "partners@zabira.com",
@@ -59,7 +61,7 @@ const contactMedimData = [
   },
   {
     title: "Support",
-    icon: <Headset className="text-brand w-10 h-10" />,
+    icon: <Headset className="text-brand w-8 h-8 md:w-10 md:h-10" />,
     day: "Mon-Sun",
     time: "8:30 AM to 6:00 PM",
     mail: "support@zabira.com",
@@ -77,31 +79,31 @@ const Contact = () => {
       />
       <section>
         <div className="custom-container  pt-28">
-          <div className="flex gap-10 justify-center">
+          <div className=" items-center flex-col md:flex-row flex gap-10 justify-center">
             {contactMedimData.map((contact) => (
               <ContactMedium key={contact.title} {...contact} />
             ))}
           </div>
-          <div className="py-40 flex justify-between gap-10">
-            <div className="min-w-fit">
+          <div className="py-40 flex-col lg:flex-row flex justify-between gap-10">
+            <div className="min-w-fit hidden lg:block">
               <ImageMashUp />
             </div>
 
-            <div className="w-[540px] relative">
+            <div className="lg:w-[540px] relative">
               <GetInTouchForm />
               <Image
                 src="/plane.svg"
                 width="160"
                 height="86"
                 alt="plane icon"
-                className="absolute -bottom-8 -right-8"
+                className="hidden md:block absolute -bottom-8 -right-8"
               />
               <Image
                 src="/grid-grey.svg"
                 width="154"
                 height="154"
                 alt="grey grid"
-                className="absolute -z-[1] -bottom-20 -right-12"
+                className="hidden md:block absolute -z-[1] -bottom-20 -right-12"
               />
             </div>
           </div>
