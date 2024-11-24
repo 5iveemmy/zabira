@@ -23,6 +23,7 @@ const ZabiraFootprint = ({
   className,
 }: Props) => {
   const [toggler, setToggler] = useState<boolean>(false);
+
   return (
     <section className="zabira-footprint">
       <div
@@ -32,7 +33,7 @@ const ZabiraFootprint = ({
         )}
       >
         <div className="lg:w-2/5">
-          <h1 className="text-[40px] leading-tight font-bold pb-5">
+          <h1 className="text-[40px] leading-tight font-bold pb-3">
             {title}{" "}
             {blueText && (
               <span className={`${blueText ? "text-brand" : ""}`}>Zabira</span>

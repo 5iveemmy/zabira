@@ -1,28 +1,61 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
 
-const ImageMashUp = () => {
+interface ImageProps {
+  src?: string;
+  width: number;
+  height: number;
+  alt?: string;
+}
+interface Props {
+  className?: string;
+  topLeftImage: ImageProps;
+  topRightImage: ImageProps;
+  bottomLeftImage: ImageProps;
+  bottomRightImage: ImageProps;
+}
+
+const ImageMashUp = ({
+  topLeftImage,
+  topRightImage,
+  bottomLeftImage,
+  className,
+  bottomRightImage,
+}: Props) => {
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex justify-end gap-8 items-end">
-        <Image src="/dots-warning.svg" width="132" height="124" alt="dots" />
+    <div className="hidden md:flex flex-col gap-4">
+      <div className={cn("flex justify-end gap-8 items-end w-fit", className)}>
         <Image
-          src="/sittingMan.jpg"
-          width="348"
-          height="232"
-          alt="siting man"
+          src="/dots-warning.svg"
+          width={topLeftImage.width}
+          height={topLeftImage.height}
+          alt="dot"
+        />
+
+        <Image
+          src={topRightImage.src as string}
+          width={topRightImage.width}
+          height={topRightImage.height}
+          alt={topRightImage.alt as string}
           className="rounded-3xl"
         />
       </div>
+
       <div className="flex gap-8 items-start">
         <Image
-          src="/goupPhoto.jpg"
-          width="292"
-          height="292"
-          alt="group photo"
+          src={bottomLeftImage.src as string}
+          width={bottomLeftImage.width}
+          height={bottomLeftImage.height}
+          alt={bottomLeftImage.alt as string}
           className="rounded-3xl"
         />
-        <Image src="/card-11.svg" width="240" height="333" alt="siting man" />
+        <Image
+          src="/card-11.svg"
+          width={bottomRightImage.width}
+          height={bottomRightImage.height}
+          alt="visual mashup"
+        />
       </div>
     </div>
   );

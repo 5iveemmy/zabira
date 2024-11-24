@@ -86,7 +86,22 @@ const Contact = () => {
           </div>
           <div className="py-40 flex-col lg:flex-row flex justify-between gap-10">
             <div className="min-w-fit hidden lg:block">
-              <ImageMashUp />
+              <ImageMashUp
+                topLeftImage={{ width: 132, height: 124 }}
+                topRightImage={{
+                  src: "/sittingMan.jpg",
+                  width: 348,
+                  height: 232,
+                  alt: "sittig man",
+                }}
+                bottomLeftImage={{
+                  width: 292,
+                  height: 292,
+                  src: "/goupPhoto.jpg",
+                  alt: "group photo",
+                }}
+                bottomRightImage={{ width: 240, height: 333 }}
+              />
             </div>
 
             <div className="lg:w-[540px] relative">

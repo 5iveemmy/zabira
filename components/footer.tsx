@@ -58,7 +58,7 @@ const listData = [
     items: [
       { text: "About Us", link: "/company/about" },
       { text: "Contact Us", link: "/company/contact" },
-      { text: "Career", link: "/company/careers" },
+      { text: "Careers", link: "/company/careers" },
     ],
   },
   {
