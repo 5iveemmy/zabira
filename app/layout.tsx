@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "./themeProvider";
 import dynamic from "next/dynamic";
+import { Toaster } from "@/components/ui/toaster";
 
 const Navbar = dynamic(() => import("@/components/navbar"), { ssr: false });
 const Footer = dynamic(() => import("@/components/footer"), {
@@ -35,6 +36,7 @@ export default function RootLayout({
             <Navbar />
             {children}
             <Footer />
+            <Toaster />
           </main>
         </ThemeProvider>
       </body>

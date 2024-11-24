@@ -5,6 +5,9 @@ import { SlPhone } from "react-icons/sl";
 import { IoMailOpenOutline } from "react-icons/io5";
 import { Button } from "@/components/ui/button";
 import { Headset } from "lucide-react";
+import ImageMashUp from "@/components/image-mash-up";
+import { GetInTouchForm } from "@/app/form/form";
+import Image from "next/image";
 
 const Header = dynamic(() => import("@/components/zabira-footprint"), {
   ssr: false,
@@ -68,14 +71,40 @@ const Contact = () => {
   return (
     <>
       <Header
+        blueText
         title="Contact"
         description="Your feedback matters to us. We would like to entertain questions on any relevant subject"
       />
       <section>
-        <div className="custom-container gap-10 flex justify-center pt-14">
-          {contactMedimData.map((contact) => (
-            <ContactMedium key={contact.title} {...contact} />
-          ))}
+        <div className="custom-container  pt-28">
+          <div className="flex gap-10 justify-center">
+            {contactMedimData.map((contact) => (
+              <ContactMedium key={contact.title} {...contact} />
+            ))}
+          </div>
+          <div className="py-40 flex justify-between gap-10">
+            <div className="min-w-fit">
+              <ImageMashUp />
+            </div>
+
+            <div className="w-[540px] relative">
+              <GetInTouchForm />
+              <Image
+                src="/plane.svg"
+                width="160"
+                height="86"
+                alt="plane icon"
+                className="absolute -bottom-8 -right-8"
+              />
+              <Image
+                src="/grid-grey.svg"
+                width="154"
+                height="154"
+                alt="grey grid"
+                className="absolute -z-[1] -bottom-20 -right-12"
+              />
+            </div>
+          </div>
         </div>
       </section>
     </>
