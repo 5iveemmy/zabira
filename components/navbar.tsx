@@ -14,6 +14,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -44,7 +45,7 @@ const components: { title: string; href: string; description: string }[] = [
 const Navbar = () => {
   return (
     <div className=" bg-white  sticky top-0 left-0 right-0 z-[999]">
-      <div className="custom-container py-3 flex justify-between">
+      <div className="custom-container py-4 flex items-center justify-between">
         <div className="flex items-center gap-5">
           <Link href="/">
             <Image
@@ -55,7 +56,7 @@ const Navbar = () => {
               alt="zabira logo"
             />
           </Link>
-          <NavigationMenu>
+          <NavigationMenu className="hidden lg:flex">
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="text-base p-3 h-auto">
@@ -110,7 +111,12 @@ const Navbar = () => {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-        <Link href="/">Log in</Link>
+        <div className="block lg:hidden border border-[#dce0e599] p-2 cursor-pointer">
+          <RxHamburgerMenu className="text-base text-[#51596c]" />
+        </div>
+        <Link href="/" className="hidden lg:block">
+          Log in
+        </Link>
       </div>
     </div>
   );

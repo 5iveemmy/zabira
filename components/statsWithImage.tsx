@@ -20,7 +20,7 @@ const tradersData = [
     value: "10K+",
     title: "Trades",
     className:
-      "bottom-0 md:bottom-auto md:top-[73%] left-12 md:transform  md:-translate-y-1/2 pr-6",
+      "bottom-0 md:bottom-auto md:top-[73%] left-0 sm:left-12 md:transform  md:-translate-y-1/2 pr-6",
   },
 ];
 
