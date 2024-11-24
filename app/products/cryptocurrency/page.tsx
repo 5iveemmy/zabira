@@ -35,6 +35,29 @@ const CryptoOptionBox = ({
   </div>
 );
 
+interface Props {
+  title: string;
+  image: string;
+}
+const BuyingOptionCard = ({ image, title }: Props) => (
+  <div className="flex items-center flex-col gap-4 w-fit group">
+    <Image
+      priority
+      width="100"
+      height="100"
+      src={image}
+      alt={`${title} 'icon'`}
+      className="group-hover:[transform:rotateY(360deg)] transition-all duration-700 ease-in-out"
+    />
+    <a
+      href="#"
+      className="text-xl transition-all duration-300 ease-in-out font-bold hover:text-[#3772ff]"
+    >
+      {title}
+    </a>
+  </div>
+);
+
 const Cryptocurrency = () => {
   return (
     <>
@@ -107,7 +130,7 @@ const Cryptocurrency = () => {
 
       <section className="bg-[#f7f7f7] ">
         <div className="custom-container py-28 text-center">
-          <div className="flex justify-center items-center flex-col gap-4">
+          <div className="flex justify-center items-center flex-col gap-4 mb-12">
             <h4 className="font-bold leading-tight text-5xl">
               Buying your first crypto on Zabira?
             </h4>
@@ -115,6 +138,34 @@ const Cryptocurrency = () => {
               Easy-peasy! Download Zabira app, get verified and start trading
               securely today
             </p>
+          </div>
+          <div className="flex items-center justify-center gap-16">
+            <BuyingOptionCard image="/download-app.svg" title="Download App" />
+
+            <Image
+              priority
+              width="160"
+              height="12"
+              src="/connect-line.png"
+              alt="Connect line"
+              className="mb-10"
+            />
+
+            <BuyingOptionCard image="/get-verified.svg" title="Get Verified" />
+
+            <Image
+              priority
+              width="160"
+              height="12"
+              src="/connect-line.png"
+              alt="Connect line"
+              className="mb-10"
+            />
+
+            <BuyingOptionCard
+              image="/start-trading.svg"
+              title="Start Trading"
+            />
           </div>
         </div>
       </section>
