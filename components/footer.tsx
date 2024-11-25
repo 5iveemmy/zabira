@@ -69,7 +69,7 @@ const listData = [
         text: "Trade Giftcards",
         link: "/products/giftcards",
       },
-      { text: "Utility Bills", link: "/" },
+      { text: "Utility Bills", link: "/products/utilities" },
     ],
   },
   {
