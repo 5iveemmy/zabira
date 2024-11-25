@@ -25,7 +25,7 @@ const ProductCard = ({
         isActive
           ? "bg-white shadow-card-custom"
           : "hover:bg-white hover:shadow-card-custom"
-      } transition-all duration-300 ease-in-ou`}
+      } transition-all duration-300 ease-in-out`}
     >
       <div
         className="min-w-[88px] h-[84px] rounded-xl flex items-center justify-center"
