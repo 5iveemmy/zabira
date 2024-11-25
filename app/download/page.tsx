@@ -42,21 +42,22 @@ const Download = () => {
       <DownloadSection />
 
       <section className="relative h-screen">
-        <div className="get-started-blue">
+        <div className="get-started-blue p-8 md:p-16">
           <h1 className="text-5xl text-center font-bold pb-3">
             Get Started in 3 Easy Steps
           </h1>
 
-          <div className="flex justify-between">
+          <div className="flex flex-col items-center lg:items-start lg:flex-row justify-between">
             <Image
               src="/happy-customer.svg"
               width="472"
               height="541"
               alt="happy customer"
+              className="lg:-mb-[5rem] h-auto"
             />
-            <div className="flex flex-col gap-8 mt-8 w-[50%] ">
+            <div className="flex flex-col gap-8 mt-8 lg:w-[50%] items-center xl:items-start">
               {steps.map(({ num, story, title }) => (
-                <div key={num} className="flex gap-4 pr-48">
+                <div key={num} className="flex gap-4 xl:pr-48">
                   <div>
                     <div className="rounded-full w-[50px] h-[50px] bg-white flex justify-center items-center">
                       <p className="font-bold text-[#7e7e7e]">{num}</p>
@@ -74,8 +75,9 @@ const Download = () => {
           </div>
         </div>
       </section>
-      <section className="flex justify-center flex-col items-center pb-10">
-        <h3 className="text-4xl text-center max-w-[50%] font-bold leading-normal tracking-normal pb-12">
+
+      <section className="mt-[40rem] md:mt-0 flex justify-center flex-col items-center pb-10">
+        <h3 className="text-4xl text-center lg:max-w-[50%] font-bold leading-normal tracking-normal pb-12">
           “Zabira serves as the main hub for designs of 3 teams at our company.
           When anyone needs to access a design - it’s in CaLan.”
         </h3>
