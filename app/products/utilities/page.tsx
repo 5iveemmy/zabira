@@ -33,6 +33,7 @@ const Utilities = () => {
       <ZabiraFootprint
         title="Innovate with payments"
         description="Step into the future and simplify your life"
+        className="gap-20"
         button={
           <Button
             asChild
@@ -48,12 +49,14 @@ const Utilities = () => {
           </Button>
         }
         rightElemet={
-          <Image
-            src="/payments-hero.svg"
-            width="520"
-            height="550"
-            alt="plane icon"
-          />
+          <div className="flex lg:block justify-center lg:justify-normal w-full lg:w-auto">
+            <Image
+              src="/payments-hero.svg"
+              width="520"
+              height="550"
+              alt="plane icon"
+            />
+          </div>
         }
       />
       <section>
@@ -68,9 +71,9 @@ const Utilities = () => {
             {paymentOptions.map(({ description, title, image }, index) => (
               <div
                 key={title}
-                className={`flex items-center  ${
+                className={`flex gap-8 md:gap-auto flex-col md:flex-row md:items-center  ${
                   index % 2 !== 0
-                    ? "justify-between pr-10 flex-row-reverse"
+                    ? "justify-between md:pr-10 flex-row-reverse"
                     : "gap-8"
                 }`}
               >
@@ -85,7 +88,7 @@ const Utilities = () => {
                   />
                   <Image
                     priority
-                    className="absolute top-2 -right-8"
+                    className="hidden md:block absolute top-2 -right-8"
                     width="64"
                     height="71"
                     src="/pointer-up.svg"
@@ -95,13 +98,16 @@ const Utilities = () => {
                     priority
                     width="539"
                     height="539"
+                    className="min-w-full md:min-w-auto"
                     src={image}
                     alt={title}
                   />
                 </div>
                 <div>
-                  <div className="">
-                    <h1 className="text-[40px] font-bold ">{title}</h1>
+                  <div>
+                    <h1 className="text-4xl sm:text-[40px] font-bold pb-4">
+                      {title}
+                    </h1>
                     <p className=" text-[#7e7e7e] pb-3">{description}</p>
                     <Button
                       asChild
