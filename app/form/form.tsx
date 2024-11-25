@@ -109,7 +109,7 @@ export function GetInTouchForm() {
                   defaultValue={field.value}
                 >
                   <FormControl className="h-[52px] px-7">
-                    <SelectTrigger>
+                    <SelectTrigger className="focus:outline-none focus:ring-transparent">
                       <SelectValue />
                     </SelectTrigger>
                   </FormControl>
@@ -144,7 +144,7 @@ export function GetInTouchForm() {
               <FormControl>
                 <Textarea
                   rows={4}
-                  className="px-7  placeholder:opacity-60"
+                  className="px-7  placeholder:opacity-60 focus-visible:ring-[#e5e5e5] focus-visible:ring-offset-[#e5e5e5]"
                   placeholder="How would you like us to be of service?"
                   {...field}
                 />

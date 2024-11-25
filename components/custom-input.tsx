@@ -32,7 +32,7 @@ export const CustomInput = ({
         <Input
           placeholder={placeholder}
           className={cn(
-            "h-[52px] px-7 placeholder:opacity-60 focus-visible:border-none ",
+            "h-[52px] px-7 focus-visible:ring-[#e5e5e5] focus-visible:ring-offset-[#e5e5e5] placeholder:opacity-60 focus:border-none focus-visible:border-none ",
             className
           )}
           {...field}
