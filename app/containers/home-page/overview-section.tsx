@@ -7,6 +7,7 @@ import Image from "next/image";
 import React from "react";
 import { BiUpArrowAlt } from "react-icons/bi";
 import CountUp from "react-countup";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 const emojis = [
   "/emoji-1.png",
@@ -49,7 +50,7 @@ const ourProducts = [
   },
 ];
 
-const reach = [
+const reachData = [
   {
     title: "Quaterly volume traded",
     value: 5620000000,
@@ -97,16 +98,18 @@ const OverviewSection = () => {
     }
   };
 
+  const isDesktop = useMediaQuery("(min-width: 640px)");
+
   return (
     <>
       {/*Our Products Section */}
       <section className="bg-[#f7f7f7]">
-        <div className="custom-container py-24 lg:flex-row flex-col flex justify-between">
-          <div className="lg:max-w-[538px] ">
+        <div className="custom-container py-24 items-center xl:flex-row flex-col flex justify-between">
+          <div className="xl:max-w-[538px] ">
             <h1 className="text-5xl leading-tight text-dark font-bold mb-4">
               Our Products
             </h1>
-            <p className="text-[#7e7e7e] text-xl lg:max-w-[368px]">
+            <p className="text-[#7e7e7e] text-xl xl:max-w-[368px]">
               From gift cards and crypto to utility payments, find all your
               financial solutions in one place
             </p>
@@ -121,12 +124,14 @@ const OverviewSection = () => {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="absolute z-0 top-[87px] right-2 w-[421px] h-[440px] rounded-3xl bg-[#3772ff1a]" />
+          <div className="relative w-full">
+            <div className="absolute z-0 top-[87px] md:right-2 w-full md:w-[421px] h-[440px] rounded-3xl bg-[#3772ff1a]" />
 
-            <div className="z-20 relative flex flex-col items-center lg:items-end gap-10">
-              <div className="mr-20 bg-white p-11 w-[396px] h-fit shadow-card-custom-prducts rounded-xl">
-                <p>How was your experience</p>
+            <div className="z-20 relative flex flex-col items-center lg:items-end gap-10 mx-4 md:mx-0">
+              <div className="md:mr-20 bg-white w-full p-11 md:w-[396px] h-fit shadow-card-custom-prducts rounded-xl">
+                <p className="text-lg font-bold pb-4 text-center">
+                  How was your experience
+                </p>
                 <div className="flex justify-between">
                   {emojis.map((emoji) => (
                     <Image
@@ -140,7 +145,7 @@ const OverviewSection = () => {
                 </div>
               </div>
 
-              <div className="flex">
+              <div className="w-full md:w-auto flex flex-col gap-6 md:gap-0 md:flex-row">
                 <div className="relative h-fit">
                   <Image
                     src="/curvedArrow.png"
@@ -150,7 +155,7 @@ const OverviewSection = () => {
                     className="absolute left-[5.5rem] bottom-32"
                   />
 
-                  <div className="-mr-1 flex mt-12 justify-between items-start bg-white p-6 w-[343px] h-fit shadow-card-custom-prducts rounded-xl">
+                  <div className="lg:-mr-1 flex mt-12 justify-between items-start bg-white p-6 md:w-[343px] h-fit shadow-card-custom-prducts rounded-xl">
                     <div className="flex gap-4 items-center">
                       <Image
                         src="/bitcoin.png"
@@ -168,7 +173,7 @@ const OverviewSection = () => {
                   </div>
                 </div>
 
-                <div className="lg:-mr-16 bg-white gap-4 flex flex-col items-center justify-center p-6 w-[360px] h-fit shadow-card-custom-prducts rounded-xl">
+                <div className="md:-mr-16 bg-white gap-4 flex flex-col items-center justify-center p-6 w-full md:w-[360px] h-fit shadow-card-custom-prducts rounded-xl">
                   <Avatar className="w-[100px] h-[100px]">
                     <AvatarImage src="/user.jpg" />
                   </Avatar>
@@ -240,13 +245,19 @@ const OverviewSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-[50%_50%] lg:w-6/12">
-            {reach.map((reach, index) => (
+          <div className="grid sm:grid-cols-[50%_50%] gap-4 sm:gap-0 lg:w-6/12">
+            {reachData.map((reach, index) => (
               <div
                 key={reach.title}
                 className="p-8 flex flex-col"
                 style={{
-                  borderBottom: index < 2 ? "0.5px solid #334ac0" : "",
+                  borderBottom: isDesktop
+                    ? index < 2
+                      ? "0.5px solid #334ac0"
+                      : ""
+                    : index !== reachData?.length - 1
+                    ? "0.5px solid #334ac0"
+                    : "",
                   borderLeft: "4px dashed #dce0e5",
                 }}
               >
@@ -254,7 +265,7 @@ const OverviewSection = () => {
                   {(index === 1 || index === 2) && (
                     <BiUpArrowAlt className="text-4xl mt-2 text-[#0083f8]" />
                   )}
-                  <h2 className="text-5xl font-bold pb-4">
+                  <h2 className="text-4xl md:text-5xl font-bold pb-4">
                     {reach.prefix}
                     <CountUp
                       duration={10}
