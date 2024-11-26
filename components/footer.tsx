@@ -37,9 +37,10 @@ const ListDisplay = ({ title, items }: ListDisplayProps) => {
       <h2 className="font-bold text-lg pb-2">{title}</h2>
 
       {items.map(({ text, link, externalLink }) => (
-        <div
+        <Button
           key={text}
-          className="flex cursor-pointer text-center items-center gap-2 hover:text-brand md:text-sm "
+          className="bg-transparent text-[#23262f] border-none h-fit shadow-none hover:bg-white p-0 flex cursor-pointer text-center items-center gap-2 hover:text-brand md:text-sm "
+          asChild
         >
           {externalLink ? (
             <a rel="noopener  noreferrer" target="_blank" href={externalLink}>
@@ -48,7 +49,7 @@ const ListDisplay = ({ title, items }: ListDisplayProps) => {
           ) : (
             <Link href={link as string}>{text}</Link>
           )}
-        </div>
+        </Button>
       ))}
     </div>
   );
@@ -150,7 +151,7 @@ const Footer = () => {
       {pathname !== "/download" && <DownloadSection />}
 
       <section className="promo-section">
-        <div className="py-8 flex justify-between custom-container items-center">
+        <div className="py-8 flex flex-col md:flex-row justify-between custom-container items-start gap-6 md:items-center">
           <div className="text-white">
             <p className="font-bold text-[32px] pb-2">
               Get Up to $30 USDT Free!

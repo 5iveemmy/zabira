@@ -123,8 +123,8 @@ const About = () => {
       </section>
 
       <section className="py-16">
-        <div className="custom-container py-5 flex flex-col lg:flex-row gap-10 lg:gap-6">
-          <p className="pt-8 lg:min-w-[30%] leading-tight text-4xl lg:text-5xl font-bold">
+        <div className="custom-container py-5 flex flex-col lg:flex-row gap-6 md:gap-10 lg:gap-6">
+          <p className="pt-8 lg:min-w-[30%] leading-tight text-3xl md:text-4xl lg:text-5xl font-bold">
             Frequently Asked Questions
           </p>
 
@@ -137,12 +137,12 @@ const About = () => {
               <AccordionItem
                 value={value}
                 key={value}
-                className="data-[state=open]:bg-[#e2f3ff]  pl-6 pr-10 border-none"
+                className="data-[state=open]:bg-[#e2f3ff] pl-3 pr-5  md:pl-6 md:pr-10 border-none"
               >
-                <AccordionTrigger className="data-[state=open]:text-[#1066e7] text-lg">
+                <AccordionTrigger className="data-[state=open]:text-[#1066e7] md:text-lg">
                   {question}
                 </AccordionTrigger>
-                <AccordionContent className="text-base pl-11 text-[#51596C]">
+                <AccordionContent className="text-sm md:text-base pl-11 text-[#51596C]">
                   {answer}
                 </AccordionContent>
               </AccordionItem>
