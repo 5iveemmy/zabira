@@ -1,12 +1,13 @@
 "use client";
 
+import CarouselCard from "@/components/carousel-card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
 import AutoScroll from "embla-carousel-auto-scroll";
+import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import React from "react";
 import { BsCurrencyBitcoin, BsRouter, BsWallet2 } from "react-icons/bs";
@@ -45,6 +46,9 @@ const carouselTopImages = [
   "/20.jpg",
   "/18.jpg",
   "/17.jpg",
+  "/27.jpg",
+  "/29.jpg",
+  "/30.jpg",
 ];
 
 const carouselBottomImages = [
@@ -124,45 +128,73 @@ const GiftCards = () => {
       </section>
 
       <section>
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          plugins={[AutoScroll({ playOnInit: true, stopOnInteraction: false })]}
-        >
-          <CarouselContent>
-            <CarouselItem>
-              <div className="flex flex-col gap-6">
-                <div className="flex justify-center gap-4">
-                  {carouselTopImages.map((image, index) => (
-                    <Image
-                      key={`top-${index}`}
-                      priority
-                      width="292"
-                      height="170"
-                      src={image}
-                      alt={`Top image ${index}`}
-                    />
-                  ))}
-                </div>
-                {/* Bottom Images */}
-                <div className="flex justify-center gap-4">
-                  {carouselBottomImages.map((image, index) => (
-                    <Image
-                      key={`bottom-${index}`}
-                      priority
-                      width="292"
-                      height="170"
-                      src={image}
-                      alt={`Bottom image ${index}`}
-                    />
-                  ))}
-                </div>
-              </div>
-            </CarouselItem>
-          </CarouselContent>
-        </Carousel>
+        <div className="flex flex-col gap-4">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({ delay: 5000 }),
+              AutoScroll({
+                playOnInit: true,
+                stopOnInteraction: false,
+                speed: 0.5,
+              }),
+            ]}
+          >
+            <CarouselContent>
+              {carouselTopImages.map((image, index) => (
+                <CarouselItem
+                  key={`top-${index}`}
+                  className="pl-4 min-w-0"
+                  style={{ flex: "0 0 240px", paddingLeft: "1rem" }}
+                >
+                  <CarouselCard
+                    key={`top-${index}`}
+                    width={240}
+                    height={140}
+                    src={image}
+                    alt={`Top image ${index}`}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({ delay: 5000 }),
+              AutoScroll({
+                playOnInit: true,
+                stopOnInteraction: false,
+                speed: 0.5,
+              }),
+            ]}
+          >
+            <CarouselContent>
+              {carouselBottomImages.map((image, index) => (
+                <CarouselItem
+                  key={`top-${index}`}
+                  className="min-w-0"
+                  style={{ flex: "0 0 292px" }}
+                >
+                  <CarouselCard
+                    key={`top-${index}`}
+                    width={292}
+                    height={170}
+                    src={image}
+                    alt={`Top image ${index}`}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
       </section>
 
       <section>
@@ -202,6 +234,7 @@ const GiftCards = () => {
                   {spendGiftCardsOptions.map(
                     ({ title, description, icon }, index) => (
                       <div
+                        key={index}
                         className={`${
                           exploreOption === index ? "bg-white" : " "
                         }  cursor-pointer p-4 rounded-b-lg flex gap-6`}
