@@ -17,6 +17,7 @@ import { Button } from "./ui/button";
 
 import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
+import { InputWithIcon } from "./input-with-icon";
 
 const DownloadSection = dynamic(
   () => import("@/app/containers/footer/download-section"),
@@ -33,18 +34,19 @@ interface ListDisplayProps {
 const ListDisplay = ({ title, items }: ListDisplayProps) => {
   return (
     <div className="flex items-center md:items-start gap-2 flex-col col-span-1">
-      <h2 className="font-bold text-sm pb-2">{title}</h2>
+      <h2 className="font-bold text-lg pb-2">{title}</h2>
 
       {items.map(({ text, link, externalLink }) => (
-        <div key={text} className="flex text-center items-center gap-2">
+        <div
+          key={text}
+          className="flex cursor-pointer text-center items-center gap-2 hover:text-brand md:text-sm "
+        >
           {externalLink ? (
-            <a rel="noopener noreferrer" target="_blank" href={link}>
+            <a rel="noopener  noreferrer" target="_blank" href={externalLink}>
               {text}
             </a>
           ) : (
-            <Link href={link as string} className="hover:text-brand text-lg ">
-              {text}
-            </Link>
+            <Link href={link as string}>{text}</Link>
           )}
         </div>
       ))}
@@ -144,7 +146,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="hidden lg:block">
+    <div className="">
       {pathname !== "/download" && <DownloadSection />}
 
       <section className="promo-section">
@@ -175,8 +177,8 @@ const Footer = () => {
       </section>
 
       <div className="custom-container">
-        <div className="flex ">
-          <div className="border-r border-[#8c98a4] pr-32 pt-11 min-w-[400px]">
+        <div className="flex flex-col lg:flex-row">
+          <div className="mb-5 lg:mb-0 lg:border-r lg:border-[#8c98a4] pr-32 pt-11 lg:w-[28%]">
             <Link href="/">
               <Image
                 priority
@@ -191,13 +193,13 @@ const Footer = () => {
             <p className="text-[#7e7e7e]">support@zabira.com</p>
           </div>
 
-          <div className="pb-8 pl-20 pr-12 pt-11 flex flex-wrap max-w-[471px] justify-between gap-10">
+          <div className="border-y border-opacity-20 border-y-[#8c98a4] pt-5 lg:border-none  pb-8 lg:pl-20 lg:pr-12 lg:pt-11 flex flex-wrap lg:max-w-[471px] justify-between gap-10">
             {listData.map(({ title, items }) => (
               <ListDisplay key={title} title={title} items={items} />
             ))}
           </div>
 
-          <div className="border-l border-[#8c98a4] flex flex-col items-center pt-[53px] pl-28 pb-16">
+          <div className="lg:border-l lg:border-[#8c98a4] flex flex-col items-center pt-8 md:pt-[53px] lg:pl-28 pb-8 md:pb-16">
             <p className="text-3xl mb-3 font-bold">Download our app </p>
             <Image
               priority
@@ -207,7 +209,21 @@ const Footer = () => {
               className="mb-6"
               alt="Qr Code"
             />
-            <div className="flex gap-4 items-center ">
+
+            <div className="w-full md:w-auto">
+              <InputWithIcon
+                name="email"
+                className="md:w-[293px]  rounded-full bg-transparent"
+                placeholder="Enter your email"
+                endIcon={
+                  <Button className=" rounded-full  text-sm bg-[#0083f8]  hover:bg-[#0083f8] hover:text-white">
+                    Register
+                  </Button>
+                }
+              />
+            </div>
+
+            <div className="flex mt-4 gap-4 items-center ">
               {socialLinks.map(({ icon, link }, index) => (
                 <Icon
                   key={index}
@@ -233,7 +249,7 @@ const Footer = () => {
           </a>
         </p>
       </div>
-      <div className="fixed bottom-6 right-6">
+      <div className="fixed bottom-6 right-6 z-[999]">
         {showScrollTop && (
           <button
             onClick={scrollToTop}
