@@ -89,11 +89,11 @@ const WhatWeDo = () => {
         </div>
       </section>
 
-      <section className="custom-container pb-32 relative mb-32">
-        <div className="absolute rounded-3xl top-0 h-full -z-10 left-0 lg:w-[63%] bg-[#e2f3ff]" />
-        <div className="pt-32 flex-col lg:flex-row  flex items-end w-full">
+      <section className="custom-container pb-20 md:pb-32 relative mb-20 md:mb-32">
+        <div className="absolute rounded-3xl w-[calc(100%-2rem)] top-0 h-full -z-10 left-0 lg:w-[63%] bg-[#e2f3ff]" />
+        <div className="pt-16 md:pt-20 lg:pt-32 flex-col lg:flex-row  flex items-center lg:items-end w-full">
           <div className="lg:min-w-[569px] px-4">
-            <h2 className="text-[64px] font-bold">
+            <h2 className="mb-12 lg:mb-3 text-4xl md:text-5xl lg:text-[64px] font-bold">
               All-in-One App Built for YOU
             </h2>
             <Image
@@ -109,11 +109,11 @@ const WhatWeDo = () => {
             {features.map(({ title, icon, description }, index) => (
               <div
                 key={index}
-                className="shadow-feature-card w-full lg:w-[365px] bg-white  p-6 h-[263px] rounded-xl "
+                className="shadow-feature-card w-full lg:w-[365px] bg-white p-6 h-fit md:h-[263px] rounded-xl "
               >
                 {icon}
                 <div>
-                  <h2 className="text-[40px] leading-tight font-bold pb-3">
+                  <h2 className="text-3xl lg:text-[40px] leading-tight font-bold pb-3">
                     {title}
                   </h2>
                   <p className="text-[#7e7e7e]">{description}</p>
