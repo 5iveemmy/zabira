@@ -239,7 +239,7 @@ const Footer = () => {
 
         <Separator className="opacity-80 " />
 
-        <p className="text-[#7e7e7e]  py-4 text-center">
+        <p className="text-[#7e7e7e] text-sm md:text-base  py-4 text-center">
           Copyright © 2024. All rights reserved.{" "}
           <a className="hover:text-brand font-bold text-dark cursor-pointer">
             Terms Of Service

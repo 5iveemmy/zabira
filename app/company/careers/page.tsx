@@ -138,9 +138,9 @@ const Careers = () => {
       </section>
 
       <section>
-        <div className="custom-container py-28">
+        <div className="custom-container py-20 md:py-28">
           <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#2d374b] mb-3">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2d374b] mb-3">
               Explore career opportunities
             </h2>
             <p className="text-[#7e7e7e]">
@@ -228,11 +228,11 @@ const Careers = () => {
 
           <div className="text-center w-full flex items-center justify-center flex-col gap-3">
             <p className="text-[#51596c] md:w-[65%]">
-              Don't worry if you don't see any roles you want to apply for now.
-              Register your interest to be notified of any roles that come along
-              that meet your criteria.
+              Don&apos;t worry if you don&apos;t see any roles you want to apply
+              for now. Register your interest to be notified of any roles that
+              come along that meet your criteria.
             </p>
-            <Button className="py-5 rounded-full bg-[#0083f8] text-white text-base px-5 hover:bg-[#0083f8]">
+            <Button className="text-sm md:text-base py-5 rounded-full bg-[#0083f8] text-white px-5 hover:bg-[#0083f8]">
               Register your interest
             </Button>
           </div>
