@@ -39,6 +39,7 @@ const ProductCard = ({
           className="min-w-fit"
         />
       </div>
+
       <div>
         <h1 className="text-xl md:text-2xl font-bold pb-3">{title}</h1>
         <p className="text-sm md:text-base text-[#7e7e7e] pb-2">
@@ -46,6 +47,7 @@ const ProductCard = ({
         </p>
         <Link
           href={link as string}
+          prefetch={false}
           className="text-sm md:text-base flex items-center justify-center gap-2 group cursor-pointer"
         >
           <p className="text-brand text-[15px] font-medium">See more</p>

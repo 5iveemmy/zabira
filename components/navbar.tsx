@@ -76,6 +76,7 @@ const ListItem = ({
   <>
     <Link
       href={link}
+      prefetch={false}
       target={externalLink ? "_blank" : ""}
       className="flex items-center space-x-4 p-4 hover:bg-gray-100 rounded-lg transition"
     >
@@ -142,7 +143,7 @@ const Navbar = () => {
     <div className="shadow-sm  bg-white  sticky top-0 left-0 right-0 z-[999]">
       <div className="custom-container py-4 flex items-center justify-between">
         <div className="flex items-center gap-5">
-          <Link href="/">
+          <Link prefetch={false} href="/">
             <Image
               priority
               width="144"
@@ -281,6 +282,7 @@ const Navbar = () => {
         </div>
         <div className="hidden lg:flex gap-3 items-center">
           <Link
+            prefetch={false}
             target="_blank"
             href="https://app.zabira.com/sign-in"
             className="rounded-full hover:bg-[#2d374b1a] py-2 px-5 font-bold "
