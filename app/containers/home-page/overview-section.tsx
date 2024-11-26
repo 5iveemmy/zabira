@@ -127,7 +127,7 @@ const OverviewSection = () => {
           <div className="relative w-full">
             <div className="absolute z-0 top-[87px] md:right-2 w-full md:w-[421px] h-[440px] rounded-3xl bg-[#3772ff1a]" />
 
-            <div className="z-20 relative flex flex-col items-center lg:items-end gap-10 mx-4 md:mx-0">
+            <div className="z-20 relative flex flex-col items-center xl:items-end gap-10 mx-4 md:mx-0">
               <div className="md:mr-20 bg-white w-full p-11 md:w-[396px] h-fit shadow-card-custom-prducts rounded-xl">
                 <p className="text-lg font-bold pb-4 text-center">
                   How was your experience
@@ -173,7 +173,7 @@ const OverviewSection = () => {
                   </div>
                 </div>
 
-                <div className="md:-mr-16 bg-white gap-4 flex flex-col items-center justify-center p-6 w-full md:w-[360px] h-fit shadow-card-custom-prducts rounded-xl">
+                <div className="lg:-mr-16 bg-white gap-4 flex flex-col items-center justify-center p-6 w-full md:w-[360px] h-fit shadow-card-custom-prducts rounded-xl">
                   <Avatar className="w-[100px] h-[100px]">
                     <AvatarImage src="/user.jpg" />
                   </Avatar>
