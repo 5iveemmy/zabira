@@ -140,14 +140,13 @@
 .get-started-blue {
   background-color: #e0f1ff;
   border-radius: 40px;
-
-  margin-top: -4.2rem;
+  margin-top: -4rem;
   max-width: 90%;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin-inline: auto;
-  width: fit-content;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2rem;
+  z-index: 10;
 }
 
 .youtube-bg {

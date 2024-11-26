@@ -41,25 +41,32 @@ const Download = () => {
     <>
       <DownloadSection />
 
-      <section className="relative h-screen">
-        <div className="get-started-blue p-8 md:p-16">
-          <h1 className="text-5xl text-center font-bold pb-3">
+      <section>
+        <div className="get-started-blue p-8 md:p-16 relative">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl text-center font-bold pb-5 md:pb-3">
             Get Started in 3 Easy Steps
           </h1>
 
+          <Image
+            src="/happy-customer.svg"
+            width="472"
+            height="541"
+            alt="happy customer"
+            className="absolute bottom-0 left-16 hidden lg:block"
+          />
           <div className="flex flex-col items-center lg:items-start lg:flex-row justify-between">
             <Image
               src="/happy-customer.svg"
               width="472"
               height="541"
               alt="happy customer"
-              className="lg:-mb-[5rem] h-auto"
+              className="visible lg:invisible"
             />
             <div className="flex flex-col gap-8 mt-8 lg:w-[50%] items-center xl:items-start">
               {steps.map(({ num, story, title }) => (
                 <div key={num} className="flex gap-4 xl:pr-48">
                   <div>
-                    <div className="rounded-full w-[50px] h-[50px] bg-white flex justify-center items-center">
+                    <div className="rounded-full h-[40px] w-[40px] md:w-[50px] md:h-[50px] bg-white flex justify-center items-center">
                       <p className="font-bold text-[#7e7e7e]">{num}</p>
                     </div>
                   </div>
@@ -76,15 +83,17 @@ const Download = () => {
         </div>
       </section>
 
-      <section className="mt-[40rem] md:mt-0 flex justify-center flex-col items-center pb-10">
-        <h3 className="text-4xl text-center lg:max-w-[50%] font-bold leading-normal tracking-normal pb-12">
+      <section className=" flex justify-center flex-col items-center py-16">
+        <h3 className="text-2xl md:text-3xl lg:text-4xl text-center lg:max-w-[50%] font-bold leading-normal tracking-normal pb-12">
           “Zabira serves as the main hub for designs of 3 teams at our company.
           When anyone needs to access a design - it’s in CaLan.”
         </h3>
         <Avatar className=" w-16 h-15 border">
           <AvatarImage src="/ceo.png" className="object-cover" />
         </Avatar>
-        <h4 className="text-2xl font-bold pt-3 pb-1">Isaac John</h4>
+        <h4 className="text-xl md:text-2xl font-bold pt-1 md:pt-3 md:pb-1">
+          Isaac John
+        </h4>
         <p className="text-sm text-[#7e7e7e]">Founder at Zabira Technologies</p>
       </section>
     </>
