@@ -111,7 +111,7 @@ const Cryptocurrency = () => {
         button={
           <Button
             asChild
-            className="h-12 mt-12 rounded-full text-white bg-[#3772ff] font-bold px-8 text-base"
+            className="h-12 mt-12 rounded-full text-white bg-[#3772ff] font-bold px-8 text-sm md:text-base"
           >
             <a
               target="_blank"
@@ -130,11 +130,11 @@ const Cryptocurrency = () => {
             alt="plane icon"
           />
         }
-        className="items-center gap-16 md:gap-10"
+        className="items-center pb-24 md:pb-[9rem] pt-20 md:pt-32 lg:pt-16  gap-16 md:gap-10"
       />
 
       <section>
-        <div className="custom-container py-28 flex flex-col lg:flex-row gap-14 lg:gap-24 items-center">
+        <div className="custom-container py-20 md:py-28 flex flex-col lg:flex-row gap-14 lg:gap-24 items-center">
           <div className="flex-col md:flex-row flex items-center gap-8">
             <div className="flex flex-col gap-8 ">
               {crptoOptions.map((option) => (
@@ -151,16 +151,16 @@ const Cryptocurrency = () => {
             </div>
           </div>
           <div className="xl:w-[80%] lg:pr-10">
-            <h1 className="text-4xl md:text-5xl leading-tight font-bold pb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl leading-tight font-bold pb-6">
               Get Your Free, Secure Crypto Wallet
             </h1>
-            <p className="text-lg text-[#7e7e7e] ">
+            <p className="text-base md:text-lg text-[#7e7e7e] ">
               Experience seamless cryptocurrency transactions with Zabira. Enjoy
               competitive rates, secure transactions, and instant support
             </p>
             <Button
               asChild
-              className="h-12 w-[242px] mt-8 lg:mt-12 rounded-full text-white bg-[#3772ff] font-bold px-8 text-base"
+              className="h-12 w-[242px] mt-8 lg:mt-12 rounded-full text-white bg-[#3772ff] font-bold px-8 text-sm md:text-base"
             >
               <a
                 target="_blank"
@@ -175,9 +175,9 @@ const Cryptocurrency = () => {
       </section>
 
       <section className="bg-[#f7f7f7] ">
-        <div className="custom-container py-24 lg:py-28 text-center">
+        <div className="custom-container py-20 md:py-24 lg:py-28 text-center">
           <div className="flex justify-center items-center flex-col gap-4 mb-12">
-            <h4 className="font-bold leading-tight text-4xl md:text-5xl">
+            <h4 className="font-bold leading-tight text-3xl md:text-4xl lg:text-5xl">
               Buying your first crypto on Zabira?
             </h4>
             <p className="text-xl text-[#7e7e7e] lg:max-w-[30%]">
@@ -217,7 +217,7 @@ const Cryptocurrency = () => {
       </section>
 
       <section>
-        <div className="custom-container py-24">
+        <div className="custom-container py-20 md:py-24">
           {infoData.map((data, index) => (
             <StatsWithImage index={index} key={index} infoData={data} />
           ))}

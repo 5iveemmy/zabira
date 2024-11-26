@@ -28,18 +28,18 @@ const ZabiraFootprint = ({
     <section className="zabira-footprint">
       <div
         className={cn(
-          "custom-container pb-[9rem] pt-32 md:pt-16 flex flex-col lg:flex-row justify-between gap-48 md:gap-10  lg:items-center",
+          "custom-container pb-[9rem] pt-32 lg:pt-16 flex flex-col lg:flex-row justify-between gap-48 md:gap-10  lg:items-center",
           className
         )}
       >
         <div className="lg:w-2/5">
-          <h1 className="text-[40px] leading-tight font-bold pb-3">
+          <h1 className="text-3xl md:text-4xl lg:text-[40px] leading-tight font-bold pb-3">
             {title}{" "}
             {blueText && (
               <span className={`${blueText ? "text-brand" : ""}`}>Zabira</span>
             )}
           </h1>
-          <p className="text-lg text-[#7e7e7e]">{description}</p>
+          <p className="text-base md:text-lg text-[#7e7e7e]">{description}</p>
           {button && button}
         </div>
 
