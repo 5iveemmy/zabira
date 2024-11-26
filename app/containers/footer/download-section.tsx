@@ -6,9 +6,9 @@ import React from "react";
 const DownloadSection = () => {
   return (
     <section className="bg-brand pt-14 zabira-download relative">
-      <div className="pt-24 custom-container flex-col lg:flex-row flex items-center gap-20 lg:gap-96">
+      <div className="pt-24 custom-container flex-col lg:flex-row flex items-center gap-36 lg:gap-96">
         <div className="lg:w-[35%] flex flex-col gap-1 text-white">
-          <h1 className="text-5xl leading-tight  font-bold">
+          <h1 className="text-4xl md:text-5xl leading-tight  font-bold">
             Download the Zabira App Today!
           </h1>
           <p className="text-lg">
@@ -49,7 +49,7 @@ const DownloadSection = () => {
         height="109"
         src="/three-arrows.svg"
         alt="arrows"
-        className="absolute top-[5rem] right-[8rem]"
+        className="hidden lg:block absolute top-[5rem] right-[8rem]"
       />
 
       <Image
@@ -57,7 +57,7 @@ const DownloadSection = () => {
         width="160"
         height="86"
         alt="plane icon"
-        className="absolute bottom-[5.5rem] right-[15.5rem]"
+        className="hidden lg:block absolute bottom-[5.5rem] right-[15.5rem]"
       />
     </section>
   );
