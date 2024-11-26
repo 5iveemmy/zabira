@@ -6,6 +6,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { BiPlayCircle } from "react-icons/bi";
 import FsLightbox from "fslightbox-react";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 const features = [
   {
@@ -34,6 +35,7 @@ const features = [
 ];
 
 const WhatWeDo = () => {
+  const isDesktop = useMediaQuery("(min-width: 640px)");
   const [lightboxController, setLightboxController] = useState({
     toggler: false,
     slide: 1,
@@ -48,14 +50,18 @@ const WhatWeDo = () => {
 
   return (
     <>
-      <section className="flex flex-col justify-center custom-container px-3 py-32 ">
+      <section className="flex flex-col justify-center custom-container px-3 py-10 md:py-32 ">
         <div className="text-center">
-          <h1 className="font-bold text-[64px] ">
+          <h1 className="font-bold text-4xl md:text-5xl lg:text-[64px] pb-3">
             Zabira in <span className="text-brand">60</span> seconds
           </h1>
-          <p className="text-xl pb-1">
+          <p className="text-lg md:text-xl pb-1">
             Trade the world, pay the world: experience finance with Zabira
           </p>
+        </div>
+
+        <div className="block md:hidden  pt-2 pb-3">
+          <p className="text-[#7e7e7e]">Learn more about Zabira:</p>
         </div>
 
         <div className="bg-cover relative youtube-bg w-full lg:w-[75%] p-6  min-h-[35vh] md:min-h-[75vh] rounded-3xl mx-auto">
@@ -68,7 +74,9 @@ const WhatWeDo = () => {
           {/* ZabiraWork Card */}
           <ZabiraWork
             onClick={() => openLightboxOnSlide(2)}
-            className="absolute  bottom-6 right-6 md:w-[272px]"
+            className={`${
+              isDesktop ? "right-6" : "inset-0 mx-auto mt-auto"
+            } " absolute  bottom-6  md:w-[272px]"`}
           />
           <FsLightbox
             toggler={lightboxController.toggler}

@@ -13,6 +13,7 @@ import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 
 import React, { useEffect, useState } from "react";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 const flags = ["/ngr.jpg", "/usa.jpg", "/ke.jpg", "/za.jpg", "/gh.jpg"];
 const texts = [
@@ -26,6 +27,7 @@ const carouselImages = ["/img1.jpg", "/map.gif", "/img3.png"];
 
 const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const isDesktop = useMediaQuery("(min-width: 640px)");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -35,23 +37,23 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="custom-container lg:flex-row flex-col flex justify-between pt-20 pb-10 items-center">
+    <div className="custom-container lg:flex-row flex-col flex justify-between pt-10 md:pt-20 pb-0 md:pb-10 items-center">
       <div className="lg:w-2/5 flex flex-col gap-1">
-        <h1 className="text-5xl leading-tight text-dark font-bold">
+        <h1 className="text-4xl md:text-5xl leading-tight text-dark font-bold">
           Energize your Future with{" "}
           <span className="transition-opacity duration-500 ease-in-out text-brand">
             {texts[currentIndex]}
           </span>
         </h1>
-        <p className="text-gray-500 text-xl">
+        <p className="text-gray-500 text-base md:text-xl">
           Experience seamless transactions, effortless swaps , and instant
           payments. Your Journey into the future of finance starts now
         </p>
 
         <DownloadBadges />
 
-        <div className="flex justify-center items-center gap-4">
-          <div className="flex relative -space-x-4">
+        <div className="flex justify-center flex-col sm:flex-row items-center gap-6 sm:gap-4">
+          <div className="flex relative mt-6 sm:mt-0 -space-x-4">
             {flags.map((item, index) => (
               <Avatar
                 key={index}
@@ -62,17 +64,20 @@ const HeroSection = () => {
             ))}
           </div>
 
-          <Separator orientation="vertical" />
+          <Separator
+            className={`${isDesktop ? " h-12" : ""}`}
+            orientation={isDesktop ? "vertical" : "horizontal"}
+          />
 
-          <div className="">
+          <div className="mb-4 md:mb-0 text-center sm:text-start">
             <p className="text-4xl text-dark font-bold">Transfer funds</p>
             <p className="text-sm text-[#7e7e7e]">Move your money, your way</p>
           </div>
         </div>
       </div>
 
-      <div className="w-[50%] relative">
-        <div className="absolute top-3 -left-4 z-10">
+      <div className="md:w-[50%] relative">
+        <div className="hidden md:block absolute top-3 -left-4 z-10">
           <p className="text-[#0083f8]">Scan Code</p>
           <a href="https://me-qr.com/Mr001Ej1" target="_blank">
             <Image
@@ -84,7 +89,7 @@ const HeroSection = () => {
             />
           </a>
         </div>
-        <div className="w-64 items-center gap-2 absolute bottom-[4.5rem] -left-[4.5rem] z-10 h-fit flex bg-[#ffc107] p-2 shadow-sm rounded-full">
+        <div className="w-64 items-center gap-2 absolute bottom-[4.5rem] md:-left-[4.5rem] z-10 h-fit flex bg-[#ffc107] p-2 shadow-sm rounded-full">
           <Avatar className="w-9 h-9">
             <AvatarImage src="/michael.jpg" className="object-cover" />
           </Avatar>

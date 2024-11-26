@@ -139,7 +139,7 @@ const suppportLinks = [
 
 const Navbar = () => {
   return (
-    <div className=" bg-white  sticky top-0 left-0 right-0 z-[999]">
+    <div className="shadow-sm  bg-white  sticky top-0 left-0 right-0 z-[999]">
       <div className="custom-container py-4 flex items-center justify-between">
         <div className="flex items-center gap-5">
           <Link href="/">
@@ -197,6 +197,7 @@ const Navbar = () => {
                         {productsMenu.map(
                           ({ link, title, description, isNew, icon }) => (
                             <Link
+                              key={title}
                               href={link}
                               className=" p-4 hover:bg-[#bdc5d133] flex gap-4 items-center rounded-lg"
                             >

@@ -104,12 +104,12 @@ const OverviewSection = () => {
     <>
       {/*Our Products Section */}
       <section className="bg-[#f7f7f7]">
-        <div className="custom-container py-24 items-center xl:flex-row flex-col flex justify-between">
+        <div className="custom-container gap-20 md:gap-0 py-16 md:py-24 items-center xl:flex-row flex-col flex justify-between">
           <div className="xl:max-w-[538px] ">
-            <h1 className="text-5xl leading-tight text-dark font-bold mb-4">
+            <h1 className=" text-4xl md:text-5xl leading-tight text-dark font-bold mb-4">
               Our Products
             </h1>
-            <p className="text-[#7e7e7e] text-xl xl:max-w-[368px]">
+            <p className="text-[#7e7e7e] text-base md:text-xl ">
               From gift cards and crypto to utility payments, find all your
               financial solutions in one place
             </p>
@@ -234,9 +234,9 @@ const OverviewSection = () => {
 
       {/*Our reach globally Section */}
       <section className="bg-[url('/sm-map.png')]">
-        <div className="custom-container py-20 lg:py-32 px-3 gap-16 lg:gap-0 flex-col lg:flex-row flex items-start lg:items-center justify-between text-white">
+        <div className="custom-container py-16 md:py-20 lg:py-32 px-3 gap-16 lg:gap-0 flex-col lg:flex-row flex items-start lg:items-center justify-between text-white">
           <div className="lg:w-2/5">
-            <h1 className="text-[64px] leading-tight  font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-[64px] leading-tight  font-bold mb-4">
               Our reach globally
             </h1>
             <p className="">
