@@ -62,7 +62,9 @@ const Utilities = () => {
       <section>
         <div className="custom-container pt-10 pb-28">
           <div className="flex justify-center items-center flex-col text-center pb-5">
-            <h2 className="text-5xl font-bold mb-3">Bill Payments</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-3">
+              Bill Payments
+            </h2>
             <p className="text-[#7e7e7e]">
               We are extending the capabilites of your wallet
             </p>
@@ -105,7 +107,7 @@ const Utilities = () => {
                 </div>
                 <div>
                   <div>
-                    <h1 className="text-4xl sm:text-[40px] font-bold pb-4">
+                    <h1 className="text-3xl sm:text-[40px] font-bold pb-2 md:pb-4">
                       {title}
                     </h1>
                     <p className=" text-[#7e7e7e] pb-3">{description}</p>

@@ -43,11 +43,13 @@ const ListDisplay = ({ title, items }: ListDisplayProps) => {
           asChild
         >
           {externalLink ? (
-            <a rel="noopener  noreferrer" target="_blank" href={externalLink}>
+            <a rel="noopener noreferrer" target="_blank" href={externalLink}>
               {text}
             </a>
           ) : (
-            <Link href={link as string}>{text}</Link>
+            <Link prefetch={false} href={link as string}>
+              {text}
+            </Link>
           )}
         </Button>
       ))}
