@@ -7,7 +7,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import { Separator } from "@/components/ui/separator";
 import ZabiraFootprint from "@/components/zabira-footprint";
+import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 
 const infoData = [
@@ -105,6 +112,73 @@ const faqs = [
   },
 ];
 
+interface TimelineCardProps {
+  prevYear: string;
+  laterYear: string;
+  title: string;
+  description: string;
+}
+
+const TimelineCard = ({
+  prevYear,
+  laterYear,
+  title,
+  description,
+}: TimelineCardProps) => (
+  <div>
+    <p className="text-4xl text-[#51596c] leading-tight">{prevYear}</p>
+    <p className="text-5xl text-[#0083f8] font-bold leading-tight">
+      {laterYear}
+    </p>
+    <Separator
+      orientation="horizontal"
+      className="bg-[#0083f8] w-[calc(100%+2rem)] my-8 swiper-step-divider relative"
+    />
+    <div>
+      <p className="pb-3 font-bold text-2xl">{title}</p>
+      <p className="text-[#7e7e7e]">{description}</p>
+    </div>
+  </div>
+);
+
+const timelines = [
+  {
+    prevYear: "2023",
+    laterYear: "Present",
+    title: "Official beta launch",
+    description:
+      "With the launch of Zabira Pro, we unified our services, enabling users to seamlessly buy gift cards and crypto in one place, combining the power of Zabira and Grip.",
+  },
+  {
+    prevYear: "2022",
+    laterYear: "2023",
+    title: "Early adoption success",
+    description:
+      "Our platform expanded, delivering more robust services for all users and refining the experience across the board.",
+  },
+  {
+    prevYear: "2021",
+    laterYear: "2022",
+    title: "Breaking ground",
+    description:
+      "We strengthened our team to offer superior services and support, ensuring an enhanced user experience.",
+  },
+  {
+    prevYear: "2020",
+    laterYear: "2021",
+    title: "Rolling up our sleeves",
+    description:
+      " As we grew in sales, the pandemic heightened our drive to enhance payment systems. We rebranded to Zabira and introduced Grip, expanding our services to include gift card payments.",
+  },
+  {
+    prevYear: "2019",
+    laterYear: "2020",
+    title: "Our vision of a better way in Crypto",
+    description:
+      "In August 2019, we launched as Izikjon with a vision to revolutionize fast payments and cryptocurrency exchange. Our CEO’s innovative approach to solving financial challenges laid the foundation for a world-class fintech company.",
+  },
+];
+
 const About = () => {
   return (
     <>
@@ -113,6 +187,41 @@ const About = () => {
         blueText
         description="The grand masters of instant payments"
       />
+
+      <section>
+        <div className="custom-container pt-16 pb-[120px]">
+          <h2 className="text-[40px] font-bold text-[#51596c] mb-12">
+            Our journey so far
+          </h2>
+
+          <div className="flex xl:-mr-[20%] overflow-hidden">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              plugins={[
+                Autoplay({
+                  playOnInit: true,
+                  delay: 3000,
+                  stopOnInteraction: false,
+                }),
+              ]}
+            >
+              <CarouselContent>
+                {timelines.map((timeline, index) => (
+                  <CarouselItem
+                    key={`top-${index}`}
+                    className="pl-4 min-w-0 flex-none basis-full sm:basis-2/4 md:basis-1/3 lg:basis-1/4"
+                  >
+                    <TimelineCard key={index} {...timeline} />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
+        </div>
+      </section>
 
       <section>
         <div className="custom-container flex flex-col gap-16">

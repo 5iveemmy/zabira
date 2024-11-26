@@ -47,7 +47,7 @@ const ListDisplay = ({ title, items }: ListDisplayProps) => {
               {text}
             </a>
           ) : (
-            <Link prefetch={false} href={link as string}>
+            <Link prefetch={true} href={link as string}>
               {text}
             </Link>
           )}

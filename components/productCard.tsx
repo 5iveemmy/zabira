@@ -47,7 +47,7 @@ const ProductCard = ({
         </p>
         <Link
           href={link as string}
-          prefetch={false}
+          prefetch={true}
           className="text-sm md:text-base flex items-center justify-center gap-2 group cursor-pointer"
         >
           <p className="text-brand text-[15px] font-medium">See more</p>
