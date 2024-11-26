@@ -4,6 +4,7 @@ import React, { ReactNode, useState } from "react";
 import ZabiraWork from "./zabira-work";
 import { cn } from "@/lib/utils";
 import FsLightbox from "fslightbox-react";
+import { Reveal } from "./reveal";
 
 interface Props {
   title: string;
@@ -33,12 +34,17 @@ const ZabiraFootprint = ({
         )}
       >
         <div className="lg:w-2/5">
-          <h1 className="text-3xl md:text-4xl lg:text-[40px] leading-tight font-bold pb-3">
-            {title}{" "}
-            {blueText && (
-              <span className={`${blueText ? "text-brand" : ""}`}>Zabira</span>
-            )}
-          </h1>
+          <Reveal>
+            <h1 className="text-3xl md:text-4xl lg:text-[40px] leading-tight font-bold pb-3">
+              {title}{" "}
+              {blueText && (
+                <span className={`${blueText ? "text-brand" : ""}`}>
+                  Zabira
+                </span>
+              )}
+            </h1>
+          </Reveal>
+
           <p className="text-base md:text-lg text-[#7e7e7e]">{description}</p>
           {button && button}
         </div>

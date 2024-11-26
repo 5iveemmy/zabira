@@ -15,16 +15,9 @@ import Icon from "./Icon";
 import { IoIosArrowUp } from "react-icons/io";
 import { Button } from "./ui/button";
 
-import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import { InputWithIcon } from "./input-with-icon";
-
-const DownloadSection = dynamic(
-  () => import("@/app/containers/footer/download-section"),
-  {
-    ssr: false,
-  }
-);
+import DownloadSection from "@/app/containers/footer/download-section";
 
 interface ListDisplayProps {
   title: string;

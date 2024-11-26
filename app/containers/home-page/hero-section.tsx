@@ -14,6 +14,7 @@ import Autoplay from "embla-carousel-autoplay";
 
 import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { Reveal } from "@/components/reveal";
 
 const flags = ["/ngr.jpg", "/usa.jpg", "/ke.jpg", "/za.jpg", "/gh.jpg"];
 const texts = [
@@ -39,16 +40,21 @@ const HeroSection = () => {
   return (
     <div className="custom-container lg:flex-row flex-col flex justify-between pt-10 md:pt-20 pb-0 md:pb-10 items-center">
       <div className="lg:w-2/5 flex flex-col gap-1">
-        <h1 className="text-4xl md:text-5xl leading-tight text-dark font-bold">
-          Energize your Future with{" "}
-          <span className="transition-opacity duration-500 ease-in-out text-brand">
-            {texts[currentIndex]}
-          </span>
-        </h1>
-        <p className="text-gray-500 text-base md:text-xl">
-          Experience seamless transactions, effortless swaps , and instant
-          payments. Your Journey into the future of finance starts now
-        </p>
+        <Reveal>
+          <h1 className="pb-2 text-4xl md:text-5xl leading-tight text-dark font-bold">
+            Energize your Future with{" "}
+            <span className="transition-opacity duration-500 ease-in-out text-brand">
+              {texts[currentIndex]}
+            </span>
+          </h1>
+        </Reveal>
+
+        <Reveal>
+          <p className=" text-gray-500 text-base md:text-xl">
+            Experience seamless transactions, effortless swaps , and instant
+            payments. Your Journey into the future of finance starts now
+          </p>
+        </Reveal>
 
         <DownloadBadges />
 

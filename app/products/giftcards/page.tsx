@@ -1,6 +1,7 @@
 "use client";
 
 import CarouselCard from "@/components/carousel-card";
+import { Reveal } from "@/components/reveal";
 import {
   Carousel,
   CarouselContent,
@@ -108,6 +109,7 @@ const GiftCards = () => {
               <p className="text-xs font-bold mb-4">
                 FOR ALL RETAIL AND GAMING NEEDS
               </p>
+
               <h1 className="font-bold text-4xl md:text-5xl leading-tight">
                 Safely buy & sell{" "}
                 <span className="text-[#0083f8]">popular Gift Cards</span> in
@@ -208,6 +210,7 @@ const GiftCards = () => {
               Crypto
             </p>
           </div>
+
           <div className="relative">
             <div className="absolute rounded-3xl top-0 right-0 w-full lg:w-[65%] h-[65%] md:h-full -z-[1] bg-[#e2f3ff] -mr-4 md:-mr-8" />
             <div className="py-20 flex-col-reverse md:flex-row lg:items-center flex justify-between gap-10">
@@ -269,9 +272,9 @@ const GiftCards = () => {
             {giftCardsOptions.map((option, index) => (
               <div
                 key={option.title}
-                className={`flex gap-14 flex-col lg:flex-row ${
+                className={`flex gap-14 lg:gap-0 flex-col lg:flex-row ${
                   index == 1 ? "flex-row-reverse" : ""
-                }  justify-between`}
+                }  justify-between lg:justify-normal`}
               >
                 <Image
                   priority
@@ -280,33 +283,38 @@ const GiftCards = () => {
                   src={option.image}
                   alt={option.title}
                 />
-                <div className="md:pt-24">
-                  <p className="font-bold text-4xl md:text-5xl mb-4">
-                    {option.title}
-                  </p>
-                  <p className="text-[#7e7e7e] text-xl">{option.description}</p>
-                  <div className="mt-10">
-                    <p className="text-2xl font-bold pb-3">
-                      {option.subHeader}
+
+                <Reveal>
+                  <div className="md:pt-24">
+                    <p className="font-bold text-4xl md:text-5xl mb-4">
+                      {option.title}
                     </p>
-                    <div className="flex flex-col gap-7">
-                      {option.practices.map((practice) => (
-                        <div key={practice} className="flex gap-4">
-                          <div>
-                            <Image
-                              priority
-                              width="24"
-                              height="24"
-                              src="/checkmark.svg"
-                              alt="checkmark"
-                            />
+                    <p className="text-[#7e7e7e] text-xl">
+                      {option.description}
+                    </p>
+                    <div className="mt-10">
+                      <p className="text-2xl font-bold pb-3">
+                        {option.subHeader}
+                      </p>
+                      <div className="flex flex-col gap-7">
+                        {option.practices.map((practice) => (
+                          <div key={practice} className="flex gap-4">
+                            <div>
+                              <Image
+                                priority
+                                width="24"
+                                height="24"
+                                src="/checkmark.svg"
+                                alt="checkmark"
+                              />
+                            </div>
+                            <p className="text-[#51596c]">{practice}</p>
                           </div>
-                          <p className="text-[#51596c]">{practice}</p>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Reveal>
               </div>
             ))}
           </div>

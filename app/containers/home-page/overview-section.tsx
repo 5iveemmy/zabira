@@ -9,6 +9,7 @@ import { BiUpArrowAlt } from "react-icons/bi";
 import CountUp from "react-countup";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { motion } from "framer-motion";
+import { Reveal } from "@/components/reveal";
 
 const emojis = [
   "/emoji-1.png",
@@ -109,13 +110,18 @@ const OverviewSection = () => {
       <section className="bg-[#f7f7f7]">
         <div className="custom-container gap-20 md:gap-0 py-16 md:py-24 items-center xl:flex-row flex-col flex justify-between">
           <div className="xl:max-w-[538px] ">
-            <h1 className=" text-4xl md:text-5xl leading-tight text-dark font-bold mb-4">
-              Our Products
-            </h1>
-            <p className="text-[#7e7e7e] text-base md:text-xl ">
-              From gift cards and crypto to utility payments, find all your
-              financial solutions in one place
-            </p>
+            <Reveal>
+              <h1 className=" text-4xl md:text-5xl leading-tight text-dark font-bold mb-4">
+                Our Products
+              </h1>
+            </Reveal>
+
+            <Reveal>
+              <p className="text-[#7e7e7e] text-base md:text-xl ">
+                From gift cards and crypto to utility payments, find all your
+                financial solutions in one place
+              </p>
+            </Reveal>
             <div className="pt-11 flex flex-col gap-7">
               {ourProducts.map((product, index) => (
                 <ProductCard
