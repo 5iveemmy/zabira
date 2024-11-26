@@ -72,7 +72,7 @@ export function GetInTouchForm() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col gap-6 w-full bg-white md:p-6"
       >
-        <h3 className="text-4xl font-bold">Get in touch with us</h3>
+        <h3 className="text-3xl md:text-4xl font-bold">Get in touch with us</h3>
 
         <div className="flex-col md:flex-row flex w-full gap-6 md:gap-8">
           <CustomInput
