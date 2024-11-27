@@ -56,7 +56,7 @@ export const suppportLinks = [
   },
   {
     title: "Frequently asked questions",
-    subHeader: "Help ceneter",
+    subHeader: "Help center",
     link: "/",
     icon: <BsLifePreserver className="text-[#0083f8] w-7 h-7" />,
   },

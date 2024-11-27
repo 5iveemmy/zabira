@@ -6,7 +6,7 @@ interface Props {
   icon: React.ReactNode;
   link?: string;
   className?: string;
-  floatSpeed?: number; // New prop to control floating speed
+  floatSpeed?: number;
 }
 
 const Icon: React.FC<Props> = ({ icon, link, className, floatSpeed = 0 }) => {
@@ -22,7 +22,7 @@ const Icon: React.FC<Props> = ({ icon, link, className, floatSpeed = 0 }) => {
           y: [-10, 10],
           rotate: 0,
           transition: {
-            duration: floatSpeed, // Use floatSpeed to control the rate
+            duration: floatSpeed,
             repeat: Infinity,
             repeatType: "reverse",
           },

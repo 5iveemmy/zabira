@@ -1,3 +1,5 @@
+"use client";
+
 import dynamic from "next/dynamic";
 import React, { ReactNode } from "react";
 import { IoPersonCircleOutline } from "react-icons/io5";

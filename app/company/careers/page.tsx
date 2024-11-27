@@ -20,8 +20,6 @@ import { IoIosSearch } from "react-icons/io";
 import { PiBellThin } from "react-icons/pi";
 import { z } from "zod";
 
-// text-[calc(1.30625rem + .675vw)] sm:text-2xl lg:text-3xl
-
 const contactFormSchema = z.object({
   search: z.string(),
   lastName: z.string(),
