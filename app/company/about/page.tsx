@@ -134,7 +134,7 @@ const TimelineCard = ({
       orientation="horizontal"
       className="bg-[#0083f8] w-[calc(100%+2rem)] my-8 swiper-step-divider relative"
     />
-    <div className="max-w-[350px] sm:max-w-full ">
+    <div className="max-w-[400px] sm:max-w-full ">
       <p className="pb-3 font-bold text-2xl">{title}</p>
       <p className="text-[#7e7e7e]">{description}</p>
     </div>
