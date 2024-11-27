@@ -1,3 +1,5 @@
+"use client";
+
 import StatsWithImage from "@/components/statsWithImage";
 import { Button } from "@/components/ui/button";
 import ZabiraFootprint from "@/components/zabira-footprint";
