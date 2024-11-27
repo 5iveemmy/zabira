@@ -67,6 +67,7 @@ const WhatWeDo = () => {
 
         <div className="bg-cover relative youtube-bg w-full lg:w-[75%] p-6  min-h-[35vh] md:min-h-[75vh] rounded-3xl mx-auto">
           {/* Centered Play Icon */}
+
           <BiPlayCircle
             onClick={() => openLightboxOnSlide(1)}
             className="cursor-pointer absolute inset-0 m-auto text-[145px] text-white"

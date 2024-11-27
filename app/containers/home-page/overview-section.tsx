@@ -102,7 +102,11 @@ const OverviewSection = () => {
     }
   };
 
+  const text = "Don't take our word for it, better experienced than being told";
+
   const isDesktop = useMediaQuery("(min-width: 640px)");
+
+  const characters = text.split(" ");
 
   return (
     <>
@@ -274,10 +278,21 @@ const OverviewSection = () => {
             <h1 className="text-4xl md:text-5xl lg:text-[64px] leading-tight  font-bold mb-4">
               Our reach globally
             </h1>
-            <p className="">
-              Don&apos;t take our word for it, better experienced than being
-              told
-            </p>
+
+            {characters.map((char, index) => (
+              <motion.p
+                key={index}
+                className="inline-block"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.05,
+                }}
+              >
+                {char}&nbsp;
+              </motion.p>
+            ))}
           </div>
 
           <div className="grid sm:grid-cols-[50%_50%] gap-4 sm:gap-0 lg:w-6/12">
@@ -293,7 +308,9 @@ const OverviewSection = () => {
                     : index !== reachData?.length - 1
                     ? "0.5px solid #334ac0"
                     : "",
-                  borderLeft: "4px dashed #dce0e5",
+                  borderLeft: isDesktop
+                    ? "4px dashed #dce0e5"
+                    : "2px dashed #dce0e5",
                 }}
               >
                 <div className="flex items-center">
