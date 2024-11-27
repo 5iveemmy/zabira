@@ -78,7 +78,7 @@ const Contact = () => {
         description="Your feedback matters to us. We would like to entertain questions on any relevant subject"
       />
       <section>
-        <div className="custom-container pt-14  md:pt-28">
+        <div className="custom-container pt-14  md:pt-28 overflow-hidden">
           <div className=" items-center flex-col md:flex-row flex gap-10 justify-center">
             {contactMedimData.map((contact) => (
               <ContactMedium key={contact.title} {...contact} />

@@ -2,13 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "./themeProvider";
-import dynamic from "next/dynamic";
 import { Toaster } from "@/components/ui/toaster";
-
-const Navbar = dynamic(() => import("@/components/navbar"), { ssr: false });
-const Footer = dynamic(() => import("@/components/footer"), {
-  ssr: false,
-});
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const plusJakarta = localFont({
   src: "./fonts/PlusJakartaSans-VariableFont_wght.ttf",

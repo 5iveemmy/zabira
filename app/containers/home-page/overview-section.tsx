@@ -8,6 +8,8 @@ import React from "react";
 import { BiUpArrowAlt } from "react-icons/bi";
 import CountUp from "react-countup";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { motion } from "framer-motion";
+import { Reveal } from "@/components/reveal";
 
 const emojis = [
   "/emoji-1.png",
@@ -85,6 +87,8 @@ const changeOptions = [
 ];
 
 const OverviewSection = () => {
+  const constraintsRef = React.useRef(null);
+
   const formatNumber = (value: number): string => {
     if (value >= 1000000000) {
       return (value / 1000000000).toFixed(2) + "B";
@@ -106,13 +110,18 @@ const OverviewSection = () => {
       <section className="bg-[#f7f7f7]">
         <div className="custom-container gap-20 md:gap-0 py-16 md:py-24 items-center xl:flex-row flex-col flex justify-between">
           <div className="xl:max-w-[538px] ">
-            <h1 className=" text-4xl md:text-5xl leading-tight text-dark font-bold mb-4">
-              Our Products
-            </h1>
-            <p className="text-[#7e7e7e] text-base md:text-xl ">
-              From gift cards and crypto to utility payments, find all your
-              financial solutions in one place
-            </p>
+            <Reveal>
+              <h1 className=" text-4xl md:text-5xl leading-tight text-dark font-bold mb-4">
+                Our Products
+              </h1>
+            </Reveal>
+
+            <Reveal>
+              <p className="text-[#7e7e7e] text-base md:text-xl ">
+                From gift cards and crypto to utility payments, find all your
+                financial solutions in one place
+              </p>
+            </Reveal>
             <div className="pt-11 flex flex-col gap-7">
               {ourProducts.map((product, index) => (
                 <ProductCard
@@ -127,8 +136,18 @@ const OverviewSection = () => {
           <div className="relative w-full">
             <div className="absolute z-0 top-[87px] md:right-2 w-full md:w-[421px] h-[440px] rounded-3xl bg-[#3772ff1a]" />
 
-            <div className="z-20 relative flex flex-col items-center xl:items-end gap-10 mx-4 md:mx-0">
-              <div className="md:mr-20 bg-white w-full p-11 md:w-[396px] h-fit shadow-card-custom-prducts rounded-xl">
+            <motion.div
+              ref={constraintsRef}
+              className="z-20 relative flex flex-col items-center xl:items-end gap-10 mx-4 md:mx-0"
+            >
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                whileDrag={{ scale: 0.9, rotate: 10 }}
+                drag
+                dragConstraints={constraintsRef}
+                className="md:mr-20 bg-white w-full p-11 md:w-[396px] h-fit shadow-card-custom-prducts rounded-xl"
+              >
                 <p className="text-lg font-bold pb-4 text-center">
                   How was your experience
                 </p>
@@ -143,7 +162,7 @@ const OverviewSection = () => {
                     />
                   ))}
                 </div>
-              </div>
+              </motion.div>
 
               <div className="w-full md:w-auto flex flex-col gap-6 md:gap-0 md:flex-row">
                 <div className="relative h-fit">
@@ -155,7 +174,14 @@ const OverviewSection = () => {
                     className="absolute left-[5.5rem] bottom-32"
                   />
 
-                  <div className="lg:-mr-1 flex mt-12 justify-between items-start bg-white p-6 md:w-[343px] h-fit shadow-card-custom-prducts rounded-xl">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    whileDrag={{ scale: 0.9, rotate: 10 }}
+                    drag
+                    dragConstraints={constraintsRef}
+                    className="lg:-mr-1 flex mt-12 justify-between items-start bg-white p-6 md:w-[343px] h-fit shadow-card-custom-prducts rounded-xl"
+                  >
                     <div className="flex gap-4 items-center">
                       <Image
                         src="/bitcoin.png"
@@ -170,10 +196,17 @@ const OverviewSection = () => {
                       </div>
                     </div>
                     <p className="font-bold text-xl">$56,623.54</p>
-                  </div>
+                  </motion.div>
                 </div>
 
-                <div className="lg:-mr-16 bg-white gap-4 flex flex-col items-center justify-center p-6 w-full md:w-[360px] h-fit shadow-card-custom-prducts rounded-xl">
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  whileDrag={{ scale: 0.9, rotate: 10 }}
+                  drag
+                  dragConstraints={constraintsRef}
+                  className="lg:-mr-16 bg-white gap-4 flex flex-col items-center justify-center p-6 w-full md:w-[360px] h-fit shadow-card-custom-prducts rounded-xl"
+                >
                   <Avatar className="w-[100px] h-[100px]">
                     <AvatarImage src="/user.jpg" />
                   </Avatar>
@@ -225,9 +258,9 @@ const OverviewSection = () => {
                       ))}
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

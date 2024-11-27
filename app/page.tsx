@@ -1,22 +1,8 @@
 "use client";
 
-import dynamic from "next/dynamic";
-
-const HeroSection = dynamic(
-  () => import("./containers/home-page/hero-section"),
-  {
-    ssr: false,
-  }
-);
-const OverviewSection = dynamic(
-  () => import("./containers/home-page/overview-section"),
-  {
-    ssr: false,
-  }
-);
-const WhatWeDo = dynamic(() => import("./containers/home-page/what-we-do"), {
-  ssr: false,
-});
+import HeroSection from "./containers/home-page/hero-section";
+import OverviewSection from "./containers/home-page/overview-section";
+import WhatWeDo from "./containers/home-page/what-we-do";
 
 export default function Home() {
   return (

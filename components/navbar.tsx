@@ -12,133 +12,21 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { RxHamburgerMenu } from "react-icons/rx";
-import {
-  BsBriefcase,
-  BsChatText,
-  BsCurrencyBitcoin,
-  BsFileEarmarkText,
-  BsGift,
-  BsLifePreserver,
-  BsPeople,
-  BsReceiptCutoff,
-} from "react-icons/bs";
-import { FaSteam } from "react-icons/fa";
-import { IoArrowForward } from "react-icons/io5";
-import { Separator } from "./ui/separator";
+
+import { IoArrowForward, IoCloseOutline } from "react-icons/io5";
 import { Button } from "./ui/button";
-
-{
-  /* <FaSteam /> */
-}
-{
-  /* <BsReceiptCutoff /> */
-}
-
-const productsMenu = [
-  {
-    title: "Trade Crypto",
-    description: "Buy, Sell & Swap",
-    icon: <BsCurrencyBitcoin className="text-[#0083f8] text-3xl md:text-4xl" />,
-    link: "/products/cryptocurrency",
-    isNew: true,
-  },
-  {
-    title: "Trade Giftcards",
-    description: "Buy & Sell",
-    icon: <FaSteam className="text-[#0083f8] text-3xl md:text-4xl" />,
-    link: "/products/giftcards",
-    isNew: true,
-  },
-  {
-    title: "Utility Bills",
-    description: "Electricity, CableTV, Sports Betting",
-    icon: <BsReceiptCutoff className="text-[#0083f8] text-3xl md:text-4xl" />,
-    link: "/products/utilities",
-  },
-];
-
-interface Props {
-  title: string;
-  subHeader: string;
-  icon: React.ReactNode;
-  link: string;
-  externalLink?: boolean;
-  isLast?: boolean;
-}
-const ListItem = ({
-  link,
-  icon,
-  title,
-  subHeader,
-  isLast,
-  externalLink,
-}: Props) => (
-  <>
-    <Link
-      href={link}
-      prefetch={true}
-      target={externalLink ? "_blank" : ""}
-      className="flex items-center space-x-4 p-4 hover:bg-gray-100 rounded-lg transition"
-    >
-      {icon}
-      <div>
-        <p className=" text-[#51596c] font-semibold  leading-tight">{title}</p>
-
-        <p className="text-sm text-[#51596c] font-semibold">{subHeader}</p>
-      </div>
-    </Link>
-    {!isLast && <Separator className="my-2 bg-gray-300" />}
-  </>
-);
-
-const companyLinks = [
-  {
-    title: "People-Powered Technology",
-    subHeader: "About Us",
-    link: "/company/about",
-    icon: <BsPeople className="text-[#0083f8] w-7 h-7" />,
-  },
-  {
-    title: "Join the family",
-    subHeader: "Career Opportunities",
-    link: "/company/careers",
-    icon: <BsBriefcase className="text-[#0083f8] w-7 h-7" />,
-  },
-];
-
-const resourcesLinks = [
-  {
-    title: "Latest news",
-    subHeader: "Blog",
-    link: "https://blog.zabira.com/",
-    externalLink: true,
-    icon: <BsFileEarmarkText className="text-[#0083f8] w-7 h-7" />,
-  },
-  {
-    title: "Invite a friend",
-    subHeader: "Referral Program",
-    link: "https://blog.zabira.com/referrals",
-    externalLink: true,
-    icon: <BsGift className="text-[#0083f8] w-7 h-7" />,
-  },
-];
-
-const suppportLinks = [
-  {
-    title: "Get in touch",
-    subHeader: "Contact us",
-    link: "/company/contact",
-    icon: <BsChatText className="text-[#0083f8] w-7 h-7" />,
-  },
-  {
-    title: "Frequently asked questions",
-    subHeader: "Help ceneter",
-    link: "/",
-    icon: <BsLifePreserver className="text-[#0083f8] w-7 h-7" />,
-  },
-];
+import {
+  companyLinks,
+  ListItem,
+  productsMenu,
+  resourcesLinks,
+  suppportLinks,
+} from "@/app/containers/navbar/list-item";
+import { Drawer, DrawerContent, DrawerTrigger } from "./ui/drawer";
 
 const Navbar = () => {
+  const [open, setOpen] = React.useState(false);
+
   return (
     <div className="shadow-sm  bg-white  sticky top-0 left-0 right-0 z-[999]">
       <div className="custom-container py-4 flex items-center justify-between">
@@ -152,6 +40,7 @@ const Navbar = () => {
               alt="zabira logo"
             />
           </Link>
+
           <NavigationMenu className="hidden lg:flex ">
             <NavigationMenuList>
               <NavigationMenu>
@@ -224,6 +113,7 @@ const Navbar = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
               </NavigationMenu>
+
               <NavigationMenu>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-base p-3 h-auto font-normal">
@@ -277,9 +167,77 @@ const Navbar = () => {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-        <div className="block lg:hidden border border-[#dce0e599] p-2 cursor-pointer">
-          <RxHamburgerMenu className="text-base text-[#51596c]" />
-        </div>
+
+        <Drawer direction="right" open={open} onOpenChange={setOpen}>
+          <DrawerTrigger className="block lg:hidden border border-[#dce0e599] p-2 cursor-pointer">
+            {open ? (
+              <IoCloseOutline className="text-base text-[#51596c]" />
+            ) : (
+              <RxHamburgerMenu className="text-lg text-[#51596c]" />
+            )}
+          </DrawerTrigger>
+          <DrawerContent className="top-[65px] p-6">
+            <nav className="flex flex-col gap-4">
+              <p className="text-lg font-semibold text-[#2d374b] hover:opacity-80">
+                {" "}
+                Products{" "}
+              </p>
+              {productsMenu.map(({ link, title }) => (
+                <Link
+                  key={title}
+                  href={link}
+                  className="text-sm text-[#51596c]"
+                >
+                  {" "}
+                  {title}{" "}
+                </Link>
+              ))}
+              <p className="text-lg font-semibold text-[#2d374b] hover:opacity-80">
+                {" "}
+                Company{" "}
+              </p>
+              {companyLinks.map(({ link, title }) => (
+                <Link
+                  key={title}
+                  href={link}
+                  className="text-sm text-[#51596c]"
+                >
+                  {" "}
+                  {title}{" "}
+                </Link>
+              ))}
+              <p className="text-lg font-semibold text-[#2d374b] hover:opacity-80">
+                {" "}
+                Resources{" "}
+              </p>
+              {resourcesLinks.map(({ link, title }) => (
+                <Link
+                  key={title}
+                  href={link}
+                  className="text-sm text-[#51596c]"
+                >
+                  {" "}
+                  {title}{" "}
+                </Link>
+              ))}
+              <p className="text-lg font-semibold text-[#2d374b] hover:opacity-80">
+                {" "}
+                Support{" "}
+              </p>
+              {suppportLinks.map(({ link, title }) => (
+                <Link
+                  key={title}
+                  href={link}
+                  className="text-sm text-[#51596c]"
+                >
+                  {" "}
+                  {title}{" "}
+                </Link>
+              ))}
+            </nav>
+          </DrawerContent>
+        </Drawer>
+
         <div className="hidden lg:flex gap-3 items-center">
           <Link
             prefetch={false}

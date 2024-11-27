@@ -1,12 +1,11 @@
+"use client";
+
 import React from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import DownloadBadges from "@/components/download-badges";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-
-export const metadata = {
-  title: "Zabira - Donload",
-};
+import { motion } from "framer-motion";
 
 const DownloadSection = dynamic(
   () => import("../containers/footer/download-section"),
@@ -37,6 +36,11 @@ const steps = [
 ];
 
 const Download = () => {
+  const quote =
+    "Zabira serves as the main hub for designs of 3 teams at our company. When anyone needs to access a design - it’s in CaLan.";
+
+  const words = quote.split(" ");
+
   return (
     <>
       <DownloadSection />
@@ -85,8 +89,22 @@ const Download = () => {
 
       <section className=" flex justify-center flex-col items-center py-16">
         <h3 className="text-2xl md:text-3xl lg:text-4xl text-center lg:max-w-[50%] font-bold leading-normal tracking-normal pb-12">
-          “Zabira serves as the main hub for designs of 3 teams at our company.
-          When anyone needs to access a design - it’s in CaLan.”
+          &quot;
+          {words.map((word, index) => (
+            <motion.span
+              key={index}
+              className="inline-block"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.1,
+              }}
+            >
+              {word}&nbsp;
+            </motion.span>
+          ))}
+          &quot;
         </h3>
         <Avatar className=" w-16 h-15 border">
           <AvatarImage src="/ceo.png" className="object-cover" />

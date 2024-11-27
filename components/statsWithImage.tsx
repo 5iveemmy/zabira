@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
+import { Reveal } from "./reveal";
 
 const tradersData = [
   {
@@ -81,49 +82,51 @@ const StatsWithImage = ({ index, infoData }: Props) => {
         ))}
       </div>
 
-      <div className="lg:pl-4">
-        <h3 className="mb-3 text-3xl md:text-4xl lg:text-5xl font-bold capitalize">
-          {infoData.title}
-        </h3>
-        <div className="flex flex-col gap-3">
-          {infoData.description.map((desc) => (
-            <p
-              className="text-base md:text-lg lg:text-xl  text-[#7e7e7e]"
-              key={desc}
-            >
-              {desc}
-            </p>
-          ))}
-        </div>
+      <Reveal>
+        <div className="lg:pl-4">
+          <h3 className="mb-3 text-3xl md:text-4xl lg:text-5xl font-bold capitalize">
+            {infoData.title}
+          </h3>
+          <div className="flex flex-col gap-3">
+            {infoData.description.map((desc) => (
+              <p
+                className="text-base md:text-lg lg:text-xl  text-[#7e7e7e]"
+                key={desc}
+              >
+                {desc}
+              </p>
+            ))}
+          </div>
 
-        <div className="flex flex-col gap-7 mt-11 lg:pr-24">
-          {infoData.infoHighlight.map(({ header, description, icon }) => (
-            <div key={header} className="flex gap-5 md:gap-8 items-start">
-              <div>
-                <div className="bg-[#3772ff1a] rounded-full w-[88px] h-[88px] flex items-center justify-center">
-                  <Image
-                    priority
-                    width="100"
-                    height="100"
-                    src={icon}
-                    className="max-w-fit"
-                    alt={`${header} icon`}
-                  />
+          <div className="flex flex-col gap-7 mt-11 lg:pr-24">
+            {infoData.infoHighlight.map(({ header, description, icon }) => (
+              <div key={header} className="flex gap-5 md:gap-8 items-start">
+                <div>
+                  <div className="bg-[#3772ff1a] rounded-full w-[88px] h-[88px] flex items-center justify-center">
+                    <Image
+                      priority
+                      width="100"
+                      height="100"
+                      src={icon}
+                      className="max-w-fit"
+                      alt={`${header} icon`}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <p className="mb-1 md:mb-3 text-xl md:text-2xl font-bold">
+                    {header}
+                  </p>
+                  <p className="text-[#7e7e7e] text-sm md:text-base">
+                    {description}
+                  </p>
                 </div>
               </div>
-
-              <div>
-                <p className="mb-1 md:mb-3 text-xl md:text-2xl font-bold">
-                  {header}
-                </p>
-                <p className="text-[#7e7e7e] text-sm md:text-base">
-                  {description}
-                </p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </Reveal>
     </div>
   );
 };
