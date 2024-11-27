@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import DownloadBadges from "@/components/download-badges";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { motion } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 const DownloadSection = dynamic(
   () => import("../containers/footer/download-section"),
@@ -36,6 +36,31 @@ const steps = [
 ];
 
 const Download = () => {
+  const textRef = React.useRef(null);
+  const isInView = useInView(textRef);
+
+  const mainControls = useAnimation();
+
+  React.useEffect(() => {
+    if (isInView) {
+      mainControls.start("visible");
+    } else {
+      mainControls.start("hidden");
+    }
+  }, [isInView, mainControls]);
+
+  const textVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (index: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        delay: index * 0.05,
+      },
+    }),
+  };
+
   const quote =
     "Zabira serves as the main hub for designs of 3 teams at our company. When anyone needs to access a design - it’s in CaLan.";
 
@@ -88,23 +113,44 @@ const Download = () => {
       </section>
 
       <section className=" flex justify-center flex-col items-center py-16">
-        <h3 className="text-2xl md:text-3xl lg:text-4xl text-center lg:max-w-[50%] font-bold leading-normal tracking-normal pb-12">
-          &quot;
+        <h3
+          ref={textRef}
+          className="text-2xl md:text-3xl lg:text-4xl text-center lg:max-w-[50%] font-bold leading-normal tracking-normal pb-12"
+        >
+          <motion.span
+            key="quote-start"
+            className="inline-block"
+            variants={textVariant}
+            custom={0}
+            initial="hidden"
+            animate={mainControls}
+          >
+            &quot;
+          </motion.span>
+
           {words.map((word, index) => (
             <motion.span
               key={index}
               className="inline-block"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.4,
-                delay: index * 0.1,
-              }}
+              variants={textVariant}
+              custom={index + 1}
+              initial="hidden"
+              animate={mainControls}
             >
               {word}&nbsp;
             </motion.span>
           ))}
-          &quot;
+
+          <motion.span
+            key="quote-end"
+            className="inline-block"
+            variants={textVariant}
+            custom={words.length + 1}
+            initial="hidden"
+            animate={mainControls}
+          >
+            &quot;
+          </motion.span>
         </h3>
         <Avatar className=" w-16 h-15 border">
           <AvatarImage src="/ceo.png" className="object-cover" />
