@@ -134,7 +134,7 @@ const TimelineCard = ({
       orientation="horizontal"
       className="bg-[#0083f8] w-[calc(100%+2rem)] my-8 swiper-step-divider relative"
     />
-    <div>
+    <div className="max-w-[350px] sm:max-w-full ">
       <p className="pb-3 font-bold text-2xl">{title}</p>
       <p className="text-[#7e7e7e]">{description}</p>
     </div>
@@ -189,12 +189,12 @@ const About = () => {
       />
 
       <section>
-        <div className="custom-container pt-16 pb-[120px]">
+        <div className="mx-auto w-full pl-4 pr-4 xl:pr-0  xl:pl-16 pt-16 pb-[120px]">
           <h2 className="text-[40px] font-bold text-[#51596c] mb-12">
             Our journey so far
           </h2>
 
-          <div className="flex xl:-mr-[20%] overflow-hidden">
+          <div className="flex  overflow-hidden">
             <Carousel
               opts={{
                 align: "start",
@@ -212,7 +212,7 @@ const About = () => {
                 {timelines.map((timeline, index) => (
                   <CarouselItem
                     key={`top-${index}`}
-                    className="pl-4 min-w-0 flex-none basis-full sm:basis-2/4 md:basis-1/3 lg:basis-1/4"
+                    className="min-w-0 flex-none basis-full sm:basis-2/4 md:basis-1/3 lg:basis-1/4"
                   >
                     <TimelineCard key={index} {...timeline} />
                   </CarouselItem>
