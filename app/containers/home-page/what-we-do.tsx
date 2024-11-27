@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import { BiPlayCircle } from "react-icons/bi";
 import FsLightbox from "fslightbox-react";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { motion } from "framer-motion";
 
 const features = [
   {
@@ -107,8 +108,12 @@ const WhatWeDo = () => {
 
           <div className="flex gap-6  flex-wrap z-30">
             {features.map(({ title, icon, description }, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ y: 20 }}
+                animate={{ y: 0 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 className="shadow-feature-card w-full lg:w-[365px] bg-white p-6 h-fit md:h-[263px] rounded-xl "
               >
                 {icon}
@@ -118,7 +123,7 @@ const WhatWeDo = () => {
                   </h2>
                   <p className="text-[#7e7e7e]">{description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
