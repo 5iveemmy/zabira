@@ -1,7 +1,10 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import ZabiraFootprint from "@/components/zabira-footprint";
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
 
 const paymentOptions = [
   {
@@ -80,22 +83,74 @@ const Utilities = () => {
                 }`}
               >
                 <div className="relative">
-                  <Image
-                    priority
-                    className="absolute -bottom-12 -left-16"
-                    width="192"
-                    height="104"
-                    src="/curved-shape.svg"
-                    alt="line"
-                  />
-                  <Image
-                    priority
+                  <motion.div
+                    animate={["initial"]}
+                    whileHover={["grow"]}
+                    variants={{
+                      grow: {
+                        scale: 1.1,
+                      },
+                      rotate: {
+                        rotate: [null, -5, 5, 0],
+                        transition: {
+                          duration: 10,
+                        },
+                      },
+                      initial: {
+                        y: [-10, 10],
+                        rotate: 0,
+                        transition: {
+                          duration: 2,
+                          repeat: Infinity,
+                          repeatType: "reverse",
+                        },
+                      },
+                    }}
                     className="hidden md:block absolute top-2 -right-8"
-                    width="64"
-                    height="71"
-                    src="/pointer-up.svg"
-                    alt="line"
-                  />
+                  >
+                    <Image
+                      priority
+                      width="64"
+                      height="71"
+                      src="/pointer-up.svg"
+                      alt="line"
+                    />
+                  </motion.div>
+
+                  <motion.div
+                    animate={["initial"]}
+                    whileHover={["grow"]}
+                    variants={{
+                      grow: {
+                        scale: 1.1,
+                      },
+                      rotate: {
+                        rotate: [null, -5, 5, 0],
+                        transition: {
+                          duration: 10,
+                        },
+                      },
+                      initial: {
+                        x: [-10, 10],
+                        rotate: 0,
+                        transition: {
+                          duration: 2,
+                          repeat: Infinity,
+                          repeatType: "reverse",
+                        },
+                      },
+                    }}
+                    className="absolute -bottom-12 -left-16"
+                  >
+                    <Image
+                      priority
+                      width="192"
+                      height="104"
+                      src="/curved-shape.svg"
+                      alt="line"
+                    />
+                  </motion.div>
+
                   <Image
                     priority
                     width="539"
