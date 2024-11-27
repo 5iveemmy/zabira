@@ -15,6 +15,7 @@ import Autoplay from "embla-carousel-autoplay";
 import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { Reveal } from "@/components/reveal";
+import { motion } from "framer-motion";
 
 const flags = ["/ngr.jpg", "/usa.jpg", "/ke.jpg", "/za.jpg", "/gh.jpg"];
 const texts = [
@@ -83,7 +84,31 @@ const HeroSection = () => {
       </div>
 
       <div className="md:w-[50%] relative">
-        <div className="hidden md:block absolute top-3 -left-4 z-10">
+        <motion.div
+          animate={["initial"]}
+          whileHover={["grow"]}
+          variants={{
+            grow: {
+              scale: 1.1,
+            },
+            rotate: {
+              rotate: [null, -5, 5, 0],
+              transition: {
+                duration: 10,
+              },
+            },
+            initial: {
+              y: [-20, 20],
+              rotate: 0,
+              transition: {
+                duration: 2,
+                repeat: Infinity,
+                repeatType: "reverse",
+              },
+            },
+          }}
+          className="hidden md:block absolute top-3 -left-4 z-10"
+        >
           <p className="text-[#0083f8]">Scan Code</p>
           <a href="https://me-qr.com/Mr001Ej1" target="_blank">
             <Image
@@ -94,8 +119,33 @@ const HeroSection = () => {
               alt="qr code"
             />
           </a>
-        </div>
-        <div className="w-64 items-center gap-2 absolute bottom-[4.5rem] md:-left-[4.5rem] z-10 h-fit flex bg-[#ffc107] p-2 shadow-sm rounded-full">
+        </motion.div>
+
+        <motion.div
+          animate={["initial"]}
+          whileHover={["grow"]}
+          variants={{
+            grow: {
+              scale: 1.1,
+            },
+            rotate: {
+              rotate: [null, -5, 5, 0],
+              transition: {
+                duration: 10,
+              },
+            },
+            initial: {
+              x: [100, -100],
+              rotate: 0,
+              transition: {
+                duration: 5,
+                repeat: Infinity,
+                repeatType: "reverse",
+              },
+            },
+          }}
+          className="w-64 items-center gap-2 absolute bottom-[4.5rem] md:-left-[4.5rem] z-10 h-fit flex bg-[#ffc107] p-2 shadow-sm rounded-full"
+        >
           <Avatar className="w-9 h-9">
             <AvatarImage src="/michael.jpg" className="object-cover" />
           </Avatar>
@@ -103,7 +153,7 @@ const HeroSection = () => {
             <p className="text-sm font-bold">Michael</p>
             <p className="text-sm">Trusted platform 🔥👋</p>
           </div>
-        </div>
+        </motion.div>
 
         <Carousel
           opts={{

@@ -225,6 +225,7 @@ const Footer = () => {
                   key={index}
                   icon={icon}
                   link={link}
+                  floatSpeed={socialLinks.length + index}
                   className="text-3xl hover:text-brand"
                 />
               ))}
