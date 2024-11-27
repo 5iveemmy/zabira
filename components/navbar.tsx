@@ -23,9 +23,15 @@ import {
   suppportLinks,
 } from "@/app/containers/navbar/list-item";
 import { Drawer, DrawerContent, DrawerTrigger } from "./ui/drawer";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
+  const pathname = usePathname();
+
+  React.useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
     <div className="shadow-sm  bg-white  sticky top-0 left-0 right-0 z-[999]">
@@ -196,42 +202,42 @@ const Navbar = () => {
                 {" "}
                 Company{" "}
               </p>
-              {companyLinks.map(({ link, title }) => (
+              {companyLinks.map(({ link, subHeader }) => (
                 <Link
-                  key={title}
+                  key={subHeader}
                   href={link}
                   className="text-sm text-[#51596c]"
                 >
                   {" "}
-                  {title}{" "}
+                  {subHeader}{" "}
                 </Link>
               ))}
               <p className="text-lg font-semibold text-[#2d374b] hover:opacity-80">
                 {" "}
                 Resources{" "}
               </p>
-              {resourcesLinks.map(({ link, title }) => (
+              {resourcesLinks.map(({ link, subHeader }) => (
                 <Link
-                  key={title}
+                  key={subHeader}
                   href={link}
                   className="text-sm text-[#51596c]"
                 >
                   {" "}
-                  {title}{" "}
+                  {subHeader}{" "}
                 </Link>
               ))}
               <p className="text-lg font-semibold text-[#2d374b] hover:opacity-80">
                 {" "}
                 Support{" "}
               </p>
-              {suppportLinks.map(({ link, title }) => (
+              {suppportLinks.map(({ link, subHeader }) => (
                 <Link
-                  key={title}
+                  key={subHeader}
                   href={link}
                   className="text-sm text-[#51596c]"
                 >
                   {" "}
-                  {title}{" "}
+                  {subHeader}{" "}
                 </Link>
               ))}
             </nav>
