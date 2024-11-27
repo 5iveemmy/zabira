@@ -32,7 +32,7 @@ const ListDisplay = ({ title, items }: ListDisplayProps) => {
       {items.map(({ text, link, externalLink }) => (
         <Button
           key={text}
-          className="bg-transparent text-[#23262f] border-none h-fit shadow-none hover:bg-white p-0 flex cursor-pointer text-center items-center gap-2 hover:text-brand md:text-sm "
+          className="bg-transparent text-[#23262f] border-none h-fit shadow-none hover:bg-white p-0 flex cursor-pointer text-center items-center gap-2 hover:text-brand md:text-base "
           asChild
         >
           {externalLink ? (
