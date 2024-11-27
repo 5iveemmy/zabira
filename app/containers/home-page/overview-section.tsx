@@ -124,11 +124,13 @@ const OverviewSection = () => {
             </Reveal>
             <div className="pt-11 flex flex-col gap-7">
               {ourProducts.map((product, index) => (
-                <ProductCard
+                <motion.div
                   key={product.title}
-                  {...product}
-                  isActive={index === 0}
-                />
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.8 }}
+                >
+                  <ProductCard {...product} isActive={index === 0} />
+                </motion.div>
               ))}
             </div>
           </div>
