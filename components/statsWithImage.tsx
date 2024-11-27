@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
 import { Reveal } from "./reveal";
+import { motion } from "framer-motion";
 
 const tradersData = [
   {
@@ -56,8 +57,31 @@ const StatsWithImage = ({ index, infoData }: Props) => {
           alt="about"
           className="lg:max-w-fit min-w-full"
         />{" "}
-        {tradersData.map(({ title, value, icon, className }) => (
-          <div
+        {tradersData.map(({ title, value, icon, className }, index) => (
+          <motion.div
+            animate={["initial"]}
+            whileHover={["grow"]}
+            variants={{
+              grow: {
+                scale: 1.1,
+              },
+              rotate: {
+                rotate: [null, -5, 5, 0],
+                transition: {
+                  duration: 10,
+                },
+              },
+              initial: {
+                x: index === 0 || index === 2 ? [-20, 20] : 0,
+                y: index === 1 ? [-30, 30] : 0,
+                rotate: 0,
+                transition: {
+                  duration: tradersData.length + index,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                },
+              },
+            }}
             key={title}
             style={{ boxShadow: "0px 14px 64px 0px rgba(15, 15, 15, 0.1)" }}
             className={cn(
@@ -78,7 +102,7 @@ const StatsWithImage = ({ index, infoData }: Props) => {
                 {title}
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { BsPlayCircle } from "react-icons/bs";
+import { motion } from "framer-motion";
 
 interface Props {
   className?: string;
@@ -40,22 +41,67 @@ const ZabiraWork = ({ className, onClick }: Props) => {
 
       {pathname !== "/" && (
         <>
-          <Image
-            priority
-            width="192"
-            height="109"
-            src="/three-arrows.svg"
-            alt="arrows"
+          <motion.div
+            animate={["initial"]}
+            whileHover={["grow"]}
+            variants={{
+              grow: {
+                scale: 1.1,
+              },
+              rotate: {
+                rotate: [null, -5, 5, 0],
+                transition: {
+                  duration: 10,
+                },
+              },
+              initial: {
+                x: [-20, 20],
+                rotate: 0,
+                transition: {
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                },
+              },
+            }}
             className="hidden md:block absolute top-[1.5rem] -right-[11.5rem]"
-          />
+          >
+            <Image
+              priority
+              width="192"
+              height="109"
+              src="/three-arrows.svg"
+              alt="arrows"
+            />
+          </motion.div>
 
-          <Image
-            src="/plane.svg"
-            width="160"
-            height="86"
-            alt="plane icon"
+          <motion.div
+            animate={["initial"]}
+            whileHover={["grow"]}
+            variants={{
+              grow: {
+                scale: 1.1,
+              },
+              rotate: {
+                rotate: [null, -5, 5, 0],
+                transition: {
+                  duration: 10,
+                },
+              },
+              initial: {
+                x: [-20, 20],
+                rotate: 0,
+                transition: {
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                },
+              },
+            }}
             className="hidden md:block absolute -bottom-[3.5rem] -right-[3.5rem]"
-          />
+          >
+            <Image src="/plane.svg" width="160" height="86" alt="plane icon" />
+          </motion.div>
         </>
       )}
     </div>
