@@ -86,13 +86,6 @@ const listData = [
       },
     ],
   },
-  {
-    title: "LEGAL",
-    items: [
-      { text: "Terms Of Use", link: "/" },
-      { text: "Privacy Policy", link: "/" },
-    ],
-  },
 ];
 
 const socialLinks = [
