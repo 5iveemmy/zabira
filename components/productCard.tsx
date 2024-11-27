@@ -20,7 +20,9 @@ const ProductCard = ({
   isActive,
 }: Props) => {
   return (
-    <div
+    <Link
+      href={link as string}
+      prefetch={true}
       className={`p-4 md:p-6 rounded-xl flex gap-8 ${
         isActive
           ? "bg-white shadow-card-custom"
@@ -54,7 +56,7 @@ const ProductCard = ({
           <ArrowRight className="mt-1 w-3 h-3 text-brand transition-transform group-hover:translate-x-1 duration-200 ease-in-out" />
         </Link>
       </div>
-    </div>
+    </Link>
   );
 };
 
