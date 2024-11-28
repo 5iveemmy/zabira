@@ -248,7 +248,7 @@ const About = () => {
                 key={value}
                 className="data-[state=open]:bg-[#e2f3ff] pl-3 pr-5  md:pl-6 md:pr-10 border-none"
               >
-                <AccordionTrigger className="data-[state=open]:text-[#1066e7] md:text-lg">
+                <AccordionTrigger className="text-start data-[state=open]:text-[#1066e7] md:text-lg">
                   {question}
                 </AccordionTrigger>
                 <AccordionContent className="text-sm md:text-base pl-11 text-[#51596C]">
