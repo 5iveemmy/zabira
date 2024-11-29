@@ -162,7 +162,12 @@ const HeroSection = () => {
           }}
           plugins={[
             Fade(),
-            Autoplay({ delay: 5000, stopOnInteraction: false }),
+            Autoplay({
+              delay: 5000,
+              stopOnInteraction: false,
+              playOnInit: true,
+              stopOnMouseEnter: false,
+            }),
           ]}
         >
           <CarouselContent>
