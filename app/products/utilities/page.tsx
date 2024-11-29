@@ -106,7 +106,7 @@ const Utilities = () => {
                         },
                       },
                     }}
-                    className="hidden md:block absolute top-2 -right-8"
+                    className="absolute top-2 -right-2 md:-right-8"
                   >
                     <Image
                       priority
