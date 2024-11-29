@@ -160,7 +160,10 @@ const HeroSection = () => {
             align: "start",
             loop: true,
           }}
-          plugins={[Fade(), Autoplay({ delay: 5000 })]}
+          plugins={[
+            Fade(),
+            Autoplay({ delay: 5000, stopOnInteraction: false }),
+          ]}
         >
           <CarouselContent>
             {carouselImages.map((image, index) => (
